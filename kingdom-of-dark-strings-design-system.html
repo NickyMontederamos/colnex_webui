@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kingdom of Dark Strings — Aesthetic Design System & CSS UI Kit</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0B0B0E',
+                        'gothic-shadow': '#16151A',
+                        'gothic-card': '#1C1A22',
+                        'aged-rosewood': '#332822',
+                        'antique-gold': '#8A724B',
+                        'gold-light': '#C2A662',
+                        'gold-bright': '#E5C158',
+                        'slate-mist': '#4A5868',
+                        'pale-marble': '#8E9AAF',
+                        'parchment': '#D9CBB0'
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        garamond: ['Cormorant Garamond', 'serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                        montserrat: ['Montserrat', 'sans-serif']
+                    },
+                    backgroundImage: {
+                        'gold-gradient': 'linear-gradient(135deg, #8A724B 0%, #C2A662 50%, #8A724B 100%)',
+                        'gold-radial': 'radial-gradient(circle, rgba(194, 166, 98, 0.15) 0%, rgba(11, 11, 14, 0) 70%)',
+                        'dark-radial': 'radial-gradient(ellipse at center, #1C1A22 0%, #0B0B0E 80%)'
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 15px rgba(194, 166, 98, 0.25)',
+                        'gold-glow-lg': '0 0 30px rgba(194, 166, 98, 0.4)',
+                        'dark-deep': '0 20px 40px rgba(0, 0, 0, 0.8)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* CSS Custom Properties matching the theme palette */
+        :root {
+            --color-obsidian: #0B0B0E;
+            --color-gothic-shadow: #16151A;
+            --color-gothic-card: #1C1A22;
+            --color-aged-rosewood: #332822;
+            --color-antique-gold: #8A724B;
+            --color-gold-light: #C2A662;
+            --color-slate-mist: #4A5868;
+            --color-pale-marble: #8E9AAF;
+            --color-parchment: #D9CBB0;
+        }
+
+        /* Custom Scrollbar for Gothic aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0B0E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #332822;
+            border: 1px solid #8A724B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8A724B;
+        }
+
+        /* Gothic Metallic Gold Borders */
+        .gold-border-glow {
+            position: relative;
+            border: 1px solid rgba(194, 166, 98, 0.3);
+            transition: all 0.4s ease;
+        }
+        .gold-border-glow:hover {
+            border-color: rgba(194, 166, 98, 0.8);
+            box-shadow: 0 0 20px rgba(194, 166, 98, 0.25);
+        }
+
+        /* Decorative Corners */
+        .corner-ornament {
+            position: relative;
+        }
+        .corner-ornament::before, .corner-ornament::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-color: #C2A662;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+        .corner-ornament::before {
+            top: 4px;
+            left: 4px;
+            border-top: 2px solid #C2A662;
+            border-left: 2px solid #C2A662;
+        }
+        .corner-ornament::after {
+            bottom: 4px;
+            right: 4px;
+            border-bottom: 2px solid #C2A662;
+            border-right: 2px solid #C2A662;
+        }
+
+        /* Shimmer animation on buttons */
+        @keyframes goldShimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .btn-gold-shimmer {
+            background: linear-gradient(90deg, #8A724B 0%, #E5C158 50%, #8A724B 100%);
+            background-size: 200% 100%;
+            transition: all 0.4s ease;
+        }
+        .btn-gold-shimmer:hover {
+            animation: goldShimmer 2s infinite linear;
+            box-shadow: 0 0 20px rgba(229, 193, 88, 0.4);
+        }
+
+        /* Equalizer Animation */
+        .eq-bar {
+            width: 3px;
+            background: linear-gradient(to top, #8A724B, #E5C158);
+            border-radius: 2px;
+            animation: eqBounce 1.2s infinite ease-in-out alternate;
+        }
+        .eq-bar:nth-child(1) { animation-delay: 0.1s; height: 16px; }
+        .eq-bar:nth-child(2) { animation-delay: 0.4s; height: 28px; }
+        .eq-bar:nth-child(3) { animation-delay: 0.2s; height: 12px; }
+        .eq-bar:nth-child(4) { animation-delay: 0.6s; height: 32px; }
+        .eq-bar:nth-child(5) { animation-delay: 0.3s; height: 22px; }
+
+        @keyframes eqBounce {
+            0% { height: 6px; }
+            100% { height: 32px; }
+        }
+
+        .eq-paused .eq-bar {
+            animation-play-state: paused;
+            height: 8px !important;
+        }
+
+        /* Canvas Particle overlay */
+        #ambient-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        /* Toast Alert Popup */
+        #toast {
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        #toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Custom Range Slider */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: #16151A;
+            height: 6px;
+            border-radius: 3px;
+            border: 1px solid rgba(138, 114, 75, 0.3);
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #C2A662;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(194, 166, 98, 0.8);
+            border: 2px solid #0B0B0E;
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-parchment font-montserrat min-h-screen relative overflow-x-hidden selection:bg-antique-gold selection:text-obsidian">
+
+    <!-- Ambient Floating Particles Canvas -->
+    <canvas id="ambient-canvas"></canvas>
+
+    <!-- Main Container -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+
+        <!-- Header / Banner Section -->
+        <header class="text-center py-10 relative border-b border-antique-gold/20">
+            <div class="inline-block p-2 mb-4 border border-antique-gold/40 rounded-full bg-gothic-shadow/80 shadow-gold-glow">
+                <i class="fa-solid fa-compact-disc text-2xl text-gold-light animate-spin-slow px-3 py-1"></i>
+            </div>
+            <p class="font-cinzel text-xs tracking-[0.3em] uppercase text-gold-light/80 mb-2">Web CSS5 Aesthetic System</p>
+            <h1 class="font-cinzel text-3xl sm:text-5xl lg:text-6xl font-bold tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-parchment to-antique-gold mb-4">
+                KINGDOM OF DARK STRINGS
+            </h1>
+            <p class="font-garamond text-lg sm:text-xl italic text-pale-marble/90 max-w-2xl mx-auto">
+                A design system and UI library forged in Dark Neoclassical, Dark Academia, and Atmospheric Gothic Melancholy.
+            </p>
+
+            <!-- Top Ambient Glow Toggle Control -->
+            <div class="mt-8 flex justify-center items-center gap-4">
+                <span class="text-xs uppercase tracking-widest text-slate-mist font-cinzel">Ambient Ember Effect</span>
+                <button id="toggle-ambient-btn" onclick="toggleAmbientParticles()" class="px-4 py-1.5 rounded-full border border-antique-gold/40 bg-gothic-card hover:bg-aged-rosewood text-xs text-gold-light font-cinzel tracking-wider transition-all duration-300 flex items-center gap-2">
+                    <span id="ambient-status-dot" class="w-2 h-2 rounded-full bg-gold-bright animate-pulse"></span>
+                    <span id="ambient-status-text">Enabled</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="flex justify-center border-b border-antique-gold/20">
+            <div class="flex space-x-2 sm:space-x-8 overflow-x-auto pb-px">
+                <button onclick="switchTab('palette')" id="tab-palette" class="tab-btn active px-4 py-3 font-cinzel text-sm sm:text-base tracking-wider text-gold-light border-b-2 border-gold-light font-semibold transition-all">
+                    <i class="fa-solid fa-palette mr-2"></i> Palette
+                </button>
+                <button onclick="switchTab('components')" id="tab-components" class="tab-btn px-4 py-3 font-cinzel text-sm sm:text-base tracking-wider text-pale-marble hover:text-gold-light border-b-2 border-transparent transition-all">
+                    <i class="fa-solid fa-cubes mr-2"></i> UI Showcase
+                </button>
+                <button onclick="switchTab('typography')" id="tab-typography" class="tab-btn px-4 py-3 font-cinzel text-sm sm:text-base tracking-wider text-pale-marble hover:text-gold-light border-b-2 border-transparent transition-all">
+                    <i class="fa-solid fa-font mr-2"></i> Typography
+                </button>
+                <button onclick="switchTab('code')" id="tab-code" class="tab-btn px-4 py-3 font-cinzel text-sm sm:text-base tracking-wider text-pale-marble hover:text-gold-light border-b-2 border-transparent transition-all">
+                    <i class="fa-solid fa-code mr-2"></i> CSS Code
+                </button>
+            </div>
+        </nav>
+
+        <!-- TAB 1: COLOR PALETTE -->
+        <section id="section-palette" class="tab-content block space-y-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="font-cinzel text-2xl sm:text-3xl font-bold text-gold-light mb-2">Aesthetic Palette Swatches</h2>
+                <p class="font-garamond text-lg text-pale-marble">Click any swatch to copy its CSS variable or HEX code directly to your clipboard.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Obsidian Black -->
+                <div onclick="copyColor('--color-obsidian', '#0B0B0E')" class="group cursor-pointer bg-gothic-card border border-antique-gold/20 rounded-lg p-4 transition-all duration-300 hover:-translate-y-1 hover:border-gold-light hover:shadow-gold-glow">
+                    <div class="h-32 rounded-md bg-obsidian border border-antique-gold/20 mb-4 flex items-end p-3 relative overflow-hidden">
+                        <span class="text-xs font-mono bg-gothic-shadow/80 text-parchment px-2 py-1 rounded border border-antique-gold/30">#0B0B0E</span>
+                        <div class="absolute inset-0 bg-gold-radial opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    </div>
+                    <h3 class="font-cinzel font-semibold text-lg text-gold-light">Obsidian Black</h3>
+                    <p class="font-garamond text-sm text-pale-marble">Deep background void color</p>
+                    <span class="inline-block mt-3 text-xs text-antique-gold font-mono group-hover:underline">var(--color-obsidian)</span>
+                </div>
+
+                <!-- Gothic Shadow -->
+                <div onclick="copyColor('--color-gothic-shadow', '#16151A')" class="group cursor-pointer bg-gothic-card border border-antique-gold/20 rounded-lg p-4 transition-all duration-300 hover:-translate-y-1 hover:border-gold-light hover:shadow-gold-glow">
+                    <div class="h-32 rounded-md bg-gothic-shadow border border-antique-gold/20 mb-4 flex items-end p-3 relative overflow-hidden">
+                        <span class="text-xs font-mono bg-obsidian/80 text-parchment px-2 py-1 rounded border border-antique-gold/30">#16151A</span>
+                    </div>
+                    <h3 class="font-cinzel font-semibold text-lg text-gold-light">Gothic Shadow</h3>
+                    <p class="font-garamond text-sm text-pale-marble">Subtle panel depth & inputs</p>
+                    <span class="inline-block mt-3 text-xs text-antique-gold font-mono group-hover:underline">var(--color-gothic-shadow)</span>
+                </div>
+
+                <!-- Aged Rosewood -->
+                <div onclick="copyColor('--color-aged-rosewood', '#332822')" class="group cursor-pointer bg-gothic-card border border-antique-gold/20 rounded-lg p-4 transition-all duration-300 hover:-translate-y-1 hover:border-gold-light hover:shadow-gold-glow">
+                    <div class="h-32 rounded-md bg-aged-rosewood border border-antique-gold/20 mb-4 flex items-end p-3 relative overflow-hidden">
+                        <span class="text-xs font-mono bg-obsidian/80 text-parchment px-2 py-1 rounded border border-antique-gold/30">#332822</span>
+                    </div>
+                    <h3 class="font-cinzel font-semibold text-lg text-gold-light">Aged Rosewood</h3>
+                    <p class="font-garamond text-sm text-pale-marble">Cellos, violins & mahogany warmth</p>
+                    <span class="inline-block mt-3 text-xs text-antique-gold font-mono group-hover:underline">var(--color-aged-rosewood)</span>
+                </div>
+
+                <!-- Antique Gold -->
+                <div onclick="copyColor('--color-antique-gold', '#8A724B')" class="group cursor-pointer bg-gothic-card border border-antique-gold/20 rounded-lg p-4 transition-all duration-300 hover:-translate-y-1 hover:border-gold-light hover:shadow-gold-glow">
+                    <div class="h-32 rounded-md bg-antique-gold border border-antique-gold/20 mb-4 flex items-end p-3 relative overflow-hidden">
+                        <span class="text-xs font-mono bg-obsidian/80 text-parchment px-2 py-1 rounded border border-antique-gold/30">#8A724B</span>
+                    </div>
+                    <h3 class="font-cinzel font-semibold text-lg text-gold-light">Antique Gold</h3>
+                    <p class="font-garamond text-sm text-pale-marble">Borders, subtle icons & trims</p>
+                    <span class="inline-block mt-3 text-xs text-antique-gold font-mono group-hover:underline">var(--color-antique-gold)</span>
+                </div>
+
+                <!-- Warm Parchment / Gold Light -->
+                <div onclick="copyColor('--color-gold-light', '#C2A662')" class="group cursor-pointer bg-gothic-card border border-antique-gold/20 rounded-lg p-4 transition-all duration-300 hover:-translate-y-1 hover:border-gold-light hover:shadow-gold-glow">
+                    <div class="h-32 rounded-md bg-gold-light border border-antique-gold/20 mb-4 flex items-end p-3 relative overflow-hidden">
+                        <span class="text-xs font-mono bg-obsidian/80 text-parchment px-2 py-1 rounded border border-antique-gold/30">#C2A662</span>
+                    </div>
+                    <h3 class="font-cinzel font-semibold text-lg text-gold-light">Warm Parchment</h3>
+                    <p class="font-garamond text-sm text-pale-marble">Headings, glows & focus states</p>
+                    <span class="inline-block mt-3 text-xs text-antique-gold font-mono group-hover:underline">var(--color-gold-light)</span>
+                </div>
+
+                <!-- Slate Mist -->
+                <div onclick="copyColor('--color-slate-mist', '#4A5868')" class="group cursor-pointer bg-gothic-card border border-antique-gold/20 rounded-lg p-4 transition-all duration-300 hover:-translate-y-1 hover:border-gold-light hover:shadow-gold-glow">
+                    <div class="h-32 rounded-md bg-slate-mist border border-antique-gold/20 mb-4 flex items-end p-3 relative overflow-hidden">
+                        <span class="text-xs font-mono bg-obsidian/80 text-parchment px-2 py-1 rounded border border-antique-gold/30">#4A5868</span>
+                    </div>
+                    <h3 class="font-cinzel font-semibold text-lg text-gold-light">Slate Mist</h3>
+                    <p class="font-garamond text-sm text-pale-marble">Cool moonlight & fog contrast</p>
+                    <span class="inline-block mt-3 text-xs text-antique-gold font-mono group-hover:underline">var(--color-slate-mist)</span>
+                </div>
+
+                <!-- Pale Marble -->
+                <div onclick="copyColor('--color-pale-marble', '#8E9AAF')" class="group cursor-pointer bg-gothic-card border border-antique-gold/20 rounded-lg p-4 transition-all duration-300 hover:-translate-y-1 hover:border-gold-light hover:shadow-gold-glow">
+                    <div class="h-32 rounded-md bg-pale-marble border border-antique-gold/20 mb-4 flex items-end p-3 relative overflow-hidden">
+                        <span class="text-xs font-mono bg-obsidian/80 text-obsidian px-2 py-1 rounded border border-antique-gold/30 font-semibold">#8E9AAF</span>
+                    </div>
+                    <h3 class="font-cinzel font-semibold text-lg text-gold-light">Pale Marble</h3>
+                    <p class="font-garamond text-sm text-pale-marble">Secondary body text & subtitles</p>
+                    <span class="inline-block mt-3 text-xs text-antique-gold font-mono group-hover:underline">var(--color-pale-marble)</span>
+                </div>
+
+                <!-- Soft Parchment -->
+                <div onclick="copyColor('--color-parchment', '#D9CBB0')" class="group cursor-pointer bg-gothic-card border border-antique-gold/20 rounded-lg p-4 transition-all duration-300 hover:-translate-y-1 hover:border-gold-light hover:shadow-gold-glow">
+                    <div class="h-32 rounded-md bg-parchment border border-antique-gold/20 mb-4 flex items-end p-3 relative overflow-hidden">
+                        <span class="text-xs font-mono bg-obsidian/80 text-gold-light px-2 py-1 rounded border border-antique-gold/30 font-semibold">#D9CBB0</span>
+                    </div>
+                    <h3 class="font-cinzel font-semibold text-lg text-gold-light">Light Parchment</h3>
+                    <p class="font-garamond text-sm text-pale-marble">Primary high-legibility text</p>
+                    <span class="inline-block mt-3 text-xs text-antique-gold font-mono group-hover:underline">var(--color-parchment)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: UI COMPONENTS SHOWCASE -->
+        <section id="section-components" class="tab-content hidden space-y-12">
+
+            <!-- 1. Gothic Hero Card -->
+            <div>
+                <div class="mb-4">
+                    <h3 class="font-cinzel text-xl text-gold-light flex items-center gap-2">
+                        <i class="fa-solid fa-scroll text-antique-gold"></i> Dark Academia Hero Banner Card
+                    </h3>
+                </div>
+
+                <div class="bg-gothic-card rounded-xl p-8 sm:p-12 gold-border-glow corner-ornament shadow-dark-deep relative overflow-hidden">
+                    <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-gold-radial pointer-events-none"></div>
+                    <div class="max-w-2xl relative z-10 space-y-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-antique-gold/40 bg-obsidian/60 text-xs font-cinzel text-gold-light">
+                            <i class="fa-solid fa-music"></i> Opus No. 13 - Midnight Elegies
+                        </div>
+                        <h2 class="font-cinzel text-3xl sm:text-5xl font-bold text-parchment leading-tight">
+                            Echoes of the Violin in Shadowed Halls
+                        </h2>
+                        <p class="font-garamond text-lg sm:text-xl italic text-pale-marble leading-relaxed">
+                            "When twilight fall upon ancient stone, the strings weave stories forgotten by time. Immerse yourself in dark neoclassical melodies."
+                        </p>
+                        <div class="pt-4 flex flex-wrap gap-4">
+                            <button class="btn-gold-shimmer text-obsidian font-cinzel font-bold px-6 py-3 rounded text-sm tracking-wider flex items-center gap-2 shadow-gold-glow">
+                                <i class="fa-solid fa-play"></i> Listen to Album
+                            </button>
+                            <button class="border border-antique-gold/50 hover:border-gold-light text-parchment font-cinzel px-6 py-3 rounded text-sm tracking-wider bg-gothic-shadow/50 hover:bg-aged-rosewood transition-all">
+                                View Sheet Music
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Neoclassical Music Player UI Component -->
+            <div>
+                <div class="mb-4">
+                    <h3 class="font-cinzel text-xl text-gold-light flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-antique-gold"></i> Neoclassical Audio Player Widget
+                    </h3>
+                </div>
+
+                <div class="max-w-xl mx-auto bg-gothic-shadow border border-antique-gold/40 rounded-xl p-6 shadow-dark-deep relative overflow-hidden gold-border-glow">
+                    <!-- Top Info Bar -->
+                    <div class="flex items-center justify-between border-b border-antique-gold/20 pb-4 mb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded bg-aged-rosewood border border-antique-gold/40 flex items-center justify-center text-gold-light text-xl shadow-inner">
+                                <i class="fa-solid fa-compact-disc animate-spin-slow"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-cinzel font-bold text-parchment text-base">Requiem for Cello in D Minor</h4>
+                                <p class="font-garamond italic text-xs text-pale-marble">Kingdom of Dark Strings • 3:42</p>
+                            </div>
+                        </div>
+
+                        <!-- Equalizer Animation Widget -->
+                        <div id="eq-container" class="flex items-end gap-1 h-8 px-2 py-1 bg-obsidian/60 border border-antique-gold/20 rounded">
+                            <div class="eq-bar"></div>
+                            <div class="eq-bar"></div>
+                            <div class="eq-bar"></div>
+                            <div class="eq-bar"></div>
+                            <div class="eq-bar"></div>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="space-y-2 mb-6">
+                        <div class="flex justify-between text-xs font-mono text-pale-marble">
+                            <span id="player-time-current">01:15</span>
+                            <span>03:42</span>
+                        </div>
+                        <input type="range" id="player-progress" value="35" max="100" class="w-full">
+                    </div>
+
+                    <!-- Audio Controls -->
+                    <div class="flex items-center justify-between">
+                        <button class="text-pale-marble hover:text-gold-light transition-colors p-2">
+                            <i class="fa-solid fa-shuffle text-sm"></i>
+                        </button>
+                        <div class="flex items-center gap-4">
+                            <button class="text-parchment hover:text-gold-light transition-colors text-lg p-2">
+                                <i class="fa-solid fa-backward-step"></i>
+                            </button>
+                            <button id="player-play-btn" onclick="togglePlayerPlay()" class="w-12 h-12 rounded-full bg-gold-gradient text-obsidian font-bold flex items-center justify-center hover:scale-105 transition-transform shadow-gold-glow">
+                                <i id="player-play-icon" class="fa-solid fa-pause text-lg"></i>
+                            </button>
+                            <button class="text-parchment hover:text-gold-light transition-colors text-lg p-2">
+                                <i class="fa-solid fa-forward-step"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-volume-high text-xs text-pale-marble"></i>
+                            <input type="range" value="80" max="100" class="w-16">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Dark Academia Styled Form Elements & Cards -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Form Container -->
+                <div class="bg-gothic-card border border-antique-gold/30 rounded-xl p-6 sm:p-8 space-y-6">
+                    <h3 class="font-cinzel text-xl text-gold-light border-b border-antique-gold/20 pb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-feather text-antique-gold"></i> Gothic Form Inputs
+                    </h3>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-cinzel text-xs text-gold-light uppercase tracking-widest mb-2">Musician / Patron Name</label>
+                            <input type="text" placeholder="e.g. Lord Byron" class="w-full bg-gothic-shadow border border-antique-gold/30 focus:border-gold-light rounded px-4 py-3 text-parchment focus:outline-none focus:ring-1 focus:ring-gold-light font-garamond text-lg transition-all placeholder:text-slate-mist">
+                        </div>
+
+                        <div>
+                            <label class="block font-cinzel text-xs text-gold-light uppercase tracking-widest mb-2">Composition Inquiry</label>
+                            <textarea rows="3" placeholder="Write your letter here..." class="w-full bg-gothic-shadow border border-antique-gold/30 focus:border-gold-light rounded px-4 py-3 text-parchment focus:outline-none focus:ring-1 focus:ring-gold-light font-garamond text-lg transition-all placeholder:text-slate-mist"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block font-cinzel text-xs text-gold-light uppercase tracking-widest mb-2">Instrument Selection</label>
+                            <select class="w-full bg-gothic-shadow border border-antique-gold/30 focus:border-gold-light rounded px-4 py-3 text-parchment focus:outline-none focus:ring-1 focus:ring-gold-light font-garamond text-lg transition-all">
+                                <option>Solo Violoncello</option>
+                                <option>Gothic String Quartet</option>
+                                <option>Grand Piano & Violin Nocturne</option>
+                                <option>Dark Ambient Harpsichord</option>
+                            </select>
+                        </div>
+
+                        <button class="w-full btn-gold-shimmer text-obsidian font-cinzel font-bold py-3 rounded tracking-widest uppercase text-sm shadow-gold-glow">
+                            Dispatch Message <i class="fa-solid fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Gothic Card Components -->
+                <div class="space-y-6">
+                    <div class="bg-gothic-card border border-antique-gold/30 rounded-xl p-6 gold-border-glow relative">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <span class="text-xs font-cinzel uppercase text-antique-gold tracking-wider">Atmospheric Track</span>
+                                <h4 class="font-cinzel text-xl font-bold text-parchment mt-1">Waltz of the Broken Statues</h4>
+                            </div>
+                            <span class="text-xs border border-antique-gold/40 text-gold-light px-2 py-1 rounded bg-obsidian">04:12</span>
+                        </div>
+                        <p class="font-garamond text-pale-marble italic mt-3 text-base">
+                            Minor key progressions paired with wet reverb strings and solitary piano drops in cold Cathedral halls.
+                        </p>
+                        <div class="mt-6 flex items-center justify-between pt-4 border-t border-antique-gold/20">
+                            <span class="text-xs text-slate-mist font-mono">BPM: 72 • Key: B Minor</span>
+                            <button class="text-xs font-cinzel text-gold-light hover:underline flex items-center gap-1">
+                                Preview <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-aged-rosewood/40 border border-antique-gold/40 rounded-xl p-6 gold-border-glow">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-full bg-gothic-shadow border border-gold-light flex items-center justify-center text-gold-light text-2xl flex-shrink-0">
+                                <i class="fa-solid fa-book-bookmark"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-cinzel font-bold text-lg text-gold-light">Dark Academia Style Rules</h4>
+                                <p class="font-garamond text-sm text-pale-marble italic">Use high-contrast chiaroscuro lighting effects with subtle metallic gold accent borders for maximum visual immersion.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: TYPOGRAPHY SHOWCASE -->
+        <section id="section-typography" class="tab-content hidden space-y-10">
+            <div class="text-center max-w-2xl mx-auto mb-8">
+                <h2 class="font-cinzel text-3xl font-bold text-gold-light mb-2">Gothic Academia Typography</h2>
+                <p class="font-garamond text-lg text-pale-marble">Carefully selected font pairings utilizing classical serif titles and legible body fonts.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Cinzel Font -->
+                <div class="bg-gothic-card border border-antique-gold/30 rounded-xl p-8 space-y-4">
+                    <span class="text-xs font-mono text-antique-gold uppercase tracking-widest">Primary Heading Font</span>
+                    <h3 class="font-cinzel text-3xl font-bold text-gold-light">Cinzel Serif</h3>
+                    <p class="font-cinzel text-lg text-parchment">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+                    <p class="font-cinzel text-sm text-pale-marble">
+                        Inspired by classical Roman inscriptions, Cinzel conveys solemnity, elegance, and timeless neoclassical majesty.
+                    </p>
+                </div>
+
+                <!-- Cormorant Garamond Font -->
+                <div class="bg-gothic-card border border-antique-gold/30 rounded-xl p-8 space-y-4">
+                    <span class="text-xs font-mono text-antique-gold uppercase tracking-widest">Subtitles & Quotes Font</span>
+                    <h3 class="font-garamond text-4xl italic text-gold-light">Cormorant Garamond</h3>
+                    <p class="font-garamond text-2xl text-parchment italic">"Melancholy is the pleasure of being sad."</p>
+                    <p class="font-garamond text-base text-pale-marble">
+                        A traditional display serif with sharp, graceful contrast perfect for poetry, lyrics, and dark academia subheadings.
+                    </p>
+                </div>
+
+                <!-- Playfair Display Font -->
+                <div class="bg-gothic-card border border-antique-gold/30 rounded-xl p-8 space-y-4">
+                    <span class="text-xs font-mono text-antique-gold uppercase tracking-widest">Secondary Display Font</span>
+                    <h3 class="font-playfair text-3xl text-gold-light">Playfair Display</h3>
+                    <p class="font-playfair text-xl text-parchment">Classical Elegance & High Contrast</p>
+                    <p class="font-garamond text-base text-pale-marble">
+                        Ideal for editorial emphasis, article titles, and large atmospheric headers.
+                    </p>
+                </div>
+
+                <!-- Montserrat Body Font -->
+                <div class="bg-gothic-card border border-antique-gold/30 rounded-xl p-8 space-y-4">
+                    <span class="text-xs font-mono text-antique-gold uppercase tracking-widest">Clean Body Font</span>
+                    <h3 class="font-montserrat text-2xl font-semibold text-gold-light">Montserrat Sans</h3>
+                    <p class="font-montserrat text-sm text-parchment leading-relaxed">
+                        Balanced sans-serif typography ensuring user interfaces, UI widgets, and dense information lists remain crisp and readable on modern screens.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: READY TO USE CSS SNIPPETS -->
+        <section id="section-code" class="tab-content hidden space-y-8">
+            <div class="flex items-center justify-between border-b border-antique-gold/20 pb-4">
+                <div>
+                    <h2 class="font-cinzel text-2xl font-bold text-gold-light">Ready-To-Use CSS Snippets</h2>
+                    <p class="font-garamond text-pale-marble text-base">Copy `:root` CSS variables and standard utility classes directly into your stylesheet.</p>
+                </div>
+                <button onclick="copyFullCSS()" class="btn-gold-shimmer text-obsidian font-cinzel font-bold px-4 py-2 rounded text-xs tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-copy"></i> Copy Full CSS
+                </button>
+            </div>
+
+            <!-- Code Window 1: CSS Custom Properties -->
+            <div class="bg-gothic-shadow border border-antique-gold/30 rounded-xl overflow-hidden shadow-dark-deep">
+                <div class="bg-obsidian px-4 py-3 border-b border-antique-gold/20 flex justify-between items-center">
+                    <span class="font-mono text-xs text-gold-light"><i class="fa-solid fa-code mr-2"></i> theme-variables.css</span>
+                    <button onclick="copySnippet('css-vars')" class="text-xs font-cinzel text-pale-marble hover:text-gold-light">Copy</button>
+                </div>
+                <pre class="p-4 text-xs font-mono text-parchment overflow-x-auto bg-obsidian/80">
+<code id="css-vars">:root {
+  /* Kingdom of Dark Strings Aesthetic Palette */
+  --color-obsidian: #0B0B0E;        /* Deep background void */
+  --color-gothic-shadow: #16151A;   /* Card & panel depth */
+  --color-gothic-card: #1C1A22;     /* Container background */
+  --color-aged-rosewood: #332822;   /* Warm dark mahogany accent */
+  --color-antique-gold: #8A724B;    /* Muted gold borders & highlights */
+  --color-gold-light: #C2A662;      /* Vibrant gold text & active glow */
+  --color-slate-mist: #4A5868;      /* Cold moonlight & fog tint */
+  --color-pale-marble: #8E9AAF;     /* Secondary soft text */
+  --color-parchment: #D9CBB0;       /* High contrast body text */
+
+  /* Typography */
+  --font-heading: 'Cinzel', serif;
+  --font-subtitle: 'Cormorant Garamond', serif;
+  --font-body: 'Montserrat', sans-serif;
+}</code></pre>
+            </div>
+
+            <!-- Code Window 2: CSS Utility Classes -->
+            <div class="bg-gothic-shadow border border-antique-gold/30 rounded-xl overflow-hidden shadow-dark-deep">
+                <div class="bg-obsidian px-4 py-3 border-b border-antique-gold/20 flex justify-between items-center">
+                    <span class="font-mono text-xs text-gold-light"><i class="fa-solid fa-code mr-2"></i> dark-academia-utilities.css</span>
+                    <button onclick="copySnippet('css-utilities')" class="text-xs font-cinzel text-pale-marble hover:text-gold-light">Copy</button>
+                </div>
+                <pre class="p-4 text-xs font-mono text-parchment overflow-x-auto bg-obsidian/80">
+<code id="css-utilities">/* Gold Border Glow Utility */
+.gold-border-glow {
+  position: relative;
+  border: 1px solid rgba(194, 166, 98, 0.3);
+  transition: all 0.4s ease;
+}
+.gold-border-glow:hover {
+  border-color: rgba(194, 166, 98, 0.8);
+  box-shadow: 0 0 20px rgba(194, 166, 98, 0.25);
+}
+
+/* Metallic Shimmer Button Effect */
+.btn-gold-shimmer {
+  background: linear-gradient(90deg, #8A724B 0%, #E5C158 50%, #8A724B 100%);
+  background-size: 200% 100%;
+  color: #0B0B0E;
+  transition: all 0.4s ease;
+}
+.btn-gold-shimmer:hover {
+  background-position: 200% 0;
+  box-shadow: 0 0 20px rgba(229, 193, 88, 0.4);
+}</code></pre>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center pt-10 border-t border-antique-gold/20 text-xs text-slate-mist font-cinzel">
+            <p class="mb-2">Kingdom of Dark Strings Aesthetic Design System • Web CSS5 Specification</p>
+            <p class="text-pale-marble/60">Dark Neoclassical • Gothic Ambient • Classical Melancholy Aesthetics</p>
+        </footer>
+
+    </div>
+
+    <!-- Toast Notification Popup -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-gothic-shadow border border-gold-light text-parchment px-5 py-3 rounded-lg shadow-gold-glow flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-gold-light text-lg"></i>
+        <div>
+            <p id="toast-title" class="font-cinzel text-xs font-bold text-gold-light">Copied to Clipboard</p>
+            <p id="toast-msg" class="font-garamond text-sm text-pale-marble">Color code copied successfully.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactions -->
+    <script>
+        // Tab Switcher Logic
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('text-gold-light', 'border-gold-light', 'font-semibold');
+                btn.classList.add('text-pale-marble', 'border-transparent');
+            });
+
+            document.getElementById(`section-${tabName}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-${tabName}`);
+            activeBtn.classList.remove('text-pale-marble', 'border-transparent');
+            activeBtn.classList.add('text-gold-light', 'border-gold-light', 'font-semibold');
+        }
+
+        // Copy Color Swatch
+        function copyColor(varName, hexCode) {
+            const textToCopy = `${varName}: ${hexCode};`;
+            copyToClipboard(textToCopy);
+            showToast('Color Swatch Copied', `${varName} (${hexCode}) copied to clipboard.`);
+        }
+
+        // Copy Code Snippets
+        function copySnippet(id) {
+            const code = document.getElementById(id).innerText;
+            copyToClipboard(code);
+            showToast('Snippet Copied', 'CSS snippet ready to paste into your project.');
+        }
+
+        function copyFullCSS() {
+            const cssVars = document.getElementById('css-vars').innerText;
+            const cssUtil = document.getElementById('css-utilities').innerText;
+            copyToClipboard(`${cssVars}\n\n${cssUtil}`);
+            showToast('Full CSS Copied', 'All CSS variables and utility classes copied.');
+        }
+
+        // Fallback-safe clipboard copy function
+        function copyToClipboard(text) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text);
+            } else {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                } catch (err) {
+                    console.error('Copy failed', err);
+                }
+                document.body.removeChild(textarea);
+            }
+        }
+
+        // Toast Popup Trigger
+        function showToast(title, message) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').innerText = title;
+            document.getElementById('toast-msg').innerText = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Music Player Play/Pause Interactive Simulation
+        let isPlaying = true;
+        function togglePlayerPlay() {
+            isPlaying = !isPlaying;
+            const icon = document.getElementById('player-play-icon');
+            const eq = document.getElementById('eq-container');
+
+            if (isPlaying) {
+                icon.className = 'fa-solid fa-pause text-lg';
+                eq.classList.remove('eq-paused');
+            } else {
+                icon.className = 'fa-solid fa-play text-lg ml-0.5';
+                eq.classList.add('eq-paused');
+            }
+        }
+
+        // Ambient Floating Particle / Ember Effect (HTML Canvas)
+        let ambientActive = true;
+        const canvas = document.getElementById('ambient-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + Math.random() * 50;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedY = Math.random() * 0.8 + 0.2;
+                this.speedX = (Math.random() - 0.5) * 0.4;
+                this.opacity = Math.random() * 0.6 + 0.2;
+            }
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+                if (this.y < -10) this.reset();
+            }
+            draw() {
+                ctx.fillStyle = `rgba(194, 166, 98, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let i = 0; i < 45; i++) {
+                particles.push(new Particle());
+            }
+        }
+        initParticles();
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            if (ambientActive) {
+                particles.forEach(p => {
+                    p.update();
+                    p.draw();
+                });
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        function toggleAmbientParticles() {
+            ambientActive = !ambientActive;
+            const dot = document.getElementById('ambient-status-dot');
+            const text = document.getElementById('ambient-status-text');
+
+            if (ambientActive) {
+                dot.className = 'w-2 h-2 rounded-full bg-gold-bright animate-pulse';
+                text.innerText = 'Enabled';
+            } else {
+                dot.className = 'w-2 h-2 rounded-full bg-slate-mist';
+                text.innerText = 'Disabled';
+            }
+        }
+
+        // Start Canvas loop on Window Load
+        window.onload = function() {
+            animateParticles();
+        }
+    </script>
+</body>
+</html>
