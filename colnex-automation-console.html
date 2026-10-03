@@ -168,7 +168,7 @@ textarea.in{font-family:var(--f-mono);font-size:12px;min-height:120px;resize:ver
     </div>
     <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end">
       <div class="skins" id="skins" role="group" aria-label="Choose skin"></div>
-      <label class="toggle"><input type="checkbox" id="emberToggle" checked> Ambient embers <span class="mono muted">· keys 1–9, 0 switch skin</span></label>
+      <label class="toggle"><input type="checkbox" id="emberToggle" checked> Ambient embers <span class="mono muted">· keys 1–9, 0 = first 10 skins</span></label>
     </div>
   </header>
 
@@ -249,6 +249,8 @@ textarea.in{font-family:var(--f-mono);font-size:12px;min-height:120px;resize:ver
             <button class="btn sm" id="cssCopyAll" type="button">Copy all skins</button>
           </div>
         </div>
+        <p class="eyebrow" style="margin-bottom:8px">Effects · included in the copied CSS</p>
+        <div class="chips" id="fxBox" style="gap:6px 16px;align-items:center"></div>
         <div class="chips" role="group" aria-label="CSS format">
           <button class="chip" id="fmtScoped" type="button" aria-pressed="true">Scoped · data-skin</button>
           <button class="chip" id="fmtRoot" type="button" aria-pressed="false">Standalone · :root</button>
@@ -292,7 +294,10 @@ var SKIN_DEFS=[
  {id:'cathedral-violet',name:'Cathedral Violet',sw:'#9B7BD4',v:{'--bg':'#08060E','--bg2':'#110C1B','--card':'#181024','--line':'rgba(155,123,212,.3)','--line-s':'rgba(190,160,240,.8)','--accent':'#9B7BD4','--accent2':'#C9B0F5','--on-accent':'#0C0716','--text':'#E0D6F0','--muted':'#9387B0','--dim':'#54486E','--warm':'#2A1B45','--ok':'#9ACDB5','--bad':'#E08A9A','--ember':'160,125,225','--halo':'radial-gradient(ellipse at 50% -10%,#1f1238 0,#08060E 68%)'}},
  {id:'verdigris-crypt',name:'Verdigris Crypt',sw:'#4FB3A0',v:{'--bg':'#050B0B','--bg2':'#0B1615','--card':'#101F1D','--line':'rgba(79,179,160,.28)','--line-s':'rgba(110,210,190,.78)','--accent':'#4FB3A0','--accent2':'#8FE0CC','--on-accent':'#04100E','--text':'#CFE3DC','--muted':'#80A59B','--dim':'#3E5E57','--warm':'#10302B','--ok':'#A8D88F','--bad':'#D98C7A','--ember':'90,200,175','--halo':'radial-gradient(ellipse at 50% -10%,#0f2a26 0,#050B0B 68%)'}},
  {id:'ashen-monochrome',name:'Ashen Monochrome',sw:'#B9B9B9',v:{'--bg':'#0A0A0A','--bg2':'#141414','--card':'#1B1B1B','--line':'rgba(200,200,200,.22)','--line-s':'rgba(230,230,230,.7)','--accent':'#BDBDBD','--accent2':'#F0F0F0','--on-accent':'#0A0A0A','--text':'#DADADA','--muted':'#8C8C8C','--dim':'#505050','--warm':'#262626','--ok':'#B5C9B0','--bad':'#C98A8A','--ember':'210,210,210','--halo':'radial-gradient(ellipse at 50% -10%,#222 0,#0A0A0A 68%)','--crack':'.25'}},
- {id:'rosewood-cello',name:'Rosewood Cello',sw:'#C0703A',v:{'--bg':'#0D0806','--bg2':'#1A100B','--card':'#24160F','--line':'rgba(192,112,58,.3)','--line-s':'rgba(222,140,80,.78)','--accent':'#C0703A','--accent2':'#E9A06A','--on-accent':'#150A04','--text':'#E8D2BC','--muted':'#AA8566','--dim':'#6A4630','--warm':'#40200F','--ok':'#B2BF8A','--bad':'#D96F55','--ember':'205,125,65','--halo':'radial-gradient(ellipse at 50% -10%,#2c170c 0,#0D0806 68%)'}}
+ {id:'rosewood-cello',name:'Rosewood Cello',sw:'#C0703A',v:{'--bg':'#0D0806','--bg2':'#1A100B','--card':'#24160F','--line':'rgba(192,112,58,.3)','--line-s':'rgba(222,140,80,.78)','--accent':'#C0703A','--accent2':'#E9A06A','--on-accent':'#150A04','--text':'#E8D2BC','--muted':'#AA8566','--dim':'#6A4630','--warm':'#40200F','--ok':'#B2BF8A','--bad':'#D96F55','--ember':'205,125,65','--halo':'radial-gradient(ellipse at 50% -10%,#2c170c 0,#0D0806 68%)'}},
+ {id:'mocha-nocturne',name:'Mocha Nocturne',sw:'#CBA6F7',note:'Palette: Catppuccin Mocha (MIT) — github.com/catppuccin/catppuccin',v:{'--bg':'#181825','--bg2':'#1E1E2E','--card':'#313244','--line':'rgba(203,166,247,.28)','--line-s':'rgba(203,166,247,.75)','--accent':'#CBA6F7','--accent2':'#F5C2E7','--on-accent':'#181825','--text':'#CDD6F4','--muted':'#A6ADC8','--dim':'#585B70','--warm':'#3B3556','--ok':'#A6E3A1','--bad':'#F38BA8','--ember':'203,166,247','--halo':'radial-gradient(ellipse at 50% -10%,#313244 0,#181825 68%)'}},
+ {id:'kanagawa-ink',name:'Kanagawa Ink',sw:'#E6C384',note:'Palette: Kanagawa (MIT) — github.com/rebelot/kanagawa.nvim',v:{'--bg':'#16161D','--bg2':'#1F1F28','--card':'#2A2A37','--line':'rgba(230,195,132,.26)','--line-s':'rgba(230,195,132,.75)','--accent':'#E6C384','--accent2':'#FFA066','--on-accent':'#16161D','--text':'#DCD7BA','--muted':'#A09B7F','--dim':'#54546D','--warm':'#363646','--ok':'#98BB6C','--bad':'#E46876','--ember':'230,195,132','--halo':'radial-gradient(ellipse at 50% -10%,#2A2A37 0,#16161D 68%)'}},
+ {id:'latte-linen',name:'Latte Linen',sw:'#8839EF',note:'Palette: Catppuccin Latte (MIT) — light skin',v:{'--bg':'#EFF1F5','--bg2':'#E6E9EF','--card':'#F7F8FB','--line':'rgba(76,79,105,.25)','--line-s':'rgba(76,79,105,.6)','--accent':'#8839EF','--accent2':'#FE640B','--on-accent':'#EFF1F5','--text':'#4C4F69','--muted':'#6C6F85','--dim':'#9CA0B0','--warm':'#CCD0DA','--ok':'#40A02B','--bad':'#D20F39','--ember':'136,57,239','--halo':'radial-gradient(ellipse at 50% -10%,#FFFFFF 0,#EFF1F5 70%)'}}
 ];
 var SKINS=SKIN_DEFS;
 var $=function(id){return document.getElementById(id)};
@@ -300,7 +305,7 @@ function skinCSS(d,standalone){
   var sel=standalone?':root':'[data-skin="'+d.id+'"]';
   var base={'--moon':'0','--crack':'0'},lines=[];
   VAR_ORDER.forEach(function(k){var val=d.v[k]!=null?d.v[k]:(base[k]!=null?base[k]:null);if(val!=null)lines.push('  '+k+': '+val+';')});
-  return '/* '+d.name+' */\n'+sel+' {\n'+lines.join('\n')+'\n}';
+  return '/* '+d.name+(d.note?' — '+d.note:'')+' */\n'+sel+' {\n'+lines.join('\n')+'\n}';
 }
 function injectSkins(){
   var css=SKIN_DEFS.map(function(d){return skinCSS(d,false)}).join('\n');
@@ -630,6 +635,48 @@ function loop(){
 }
 $('emberToggle').addEventListener('change',function(){state.embers=this.checked;save()});
 
+/* ================= EFFECTS (merged from the image brainstorm) ================= */
+var FX=[
+ {id:'grain',  name:'Film grain',  css:`html.fx-grain body::after{content:"";position:fixed;inset:0;z-index:5;pointer-events:none;opacity:.09;mix-blend-mode:overlay;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}`},
+ {id:'vignette',name:'Vignette',   css:`html.fx-vignette .app::before{content:"";position:fixed;inset:0;pointer-events:none;box-shadow:inset 0 0 18vmax rgba(0,0,0,.7)}`},
+ {id:'foil',   name:'Gold-foil headings', css:`html.fx-foil .head{background:linear-gradient(100deg,var(--accent) 0%,var(--accent2) 45%,var(--accent) 60%,var(--text) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}`},
+ {id:'corners',name:'Corner ornaments',  css:`html.fx-corners .panel::before{content:"";position:absolute;inset:7px;pointer-events:none;z-index:1;
+  background:
+   linear-gradient(var(--accent),var(--accent)) top left/14px 1px no-repeat,linear-gradient(var(--accent),var(--accent)) top left/1px 14px no-repeat,
+   linear-gradient(var(--accent),var(--accent)) top right/14px 1px no-repeat,linear-gradient(var(--accent),var(--accent)) top right/1px 14px no-repeat,
+   linear-gradient(var(--accent),var(--accent)) bottom left/14px 1px no-repeat,linear-gradient(var(--accent),var(--accent)) bottom left/1px 14px no-repeat,
+   linear-gradient(var(--accent),var(--accent)) bottom right/14px 1px no-repeat,linear-gradient(var(--accent),var(--accent)) bottom right/1px 14px no-repeat}`},
+ {id:'glow',   name:'Panel glow', css:`html.fx-glow .panel{box-shadow:0 0 calc(var(--glow-k,1)*28px) rgba(var(--ember),calc(var(--glow-k,1)*.16))}`}
+];
+var FX_DEFAULT={grain:false,vignette:false,foil:false,corners:false,glow:false,glowK:1};
+function applyFx(){
+  state.fx=Object.assign({},FX_DEFAULT,state.fx||{});
+  var h=document.documentElement;
+  FX.forEach(function(x){h.classList.toggle('fx-'+x.id,!!state.fx[x.id])});
+  h.style.setProperty('--glow-k',String(state.fx.glowK));
+}
+function fxCSS(){
+  var on=FX.filter(function(x){return state.fx[x.id]});
+  if(!on.length)return '';
+  var out='\n\n/* ---- Effects ---- */\n';
+  if(state.fx.glow)out+=':root { --glow-k: '+state.fx.glowK+'; }\n';
+  return out+on.map(function(x){return '/* '+x.name+' — add class "fx-'+x.id+'" to <html> */\n'+x.css}).join('\n\n');
+}
+function renderFxControls(){
+  var box=$('fxBox');box.textContent='';
+  FX.forEach(function(x){
+    var l=el('label','toggle'),i=document.createElement('input');i.type='checkbox';i.checked=!!state.fx[x.id];
+    i.onchange=function(){state.fx[x.id]=i.checked;save();applyFx();renderSkinCSS()};
+    l.appendChild(i);l.appendChild(document.createTextNode(' '+x.name));box.appendChild(l);
+  });
+  var r=el('label','toggle');r.appendChild(document.createTextNode('Glow strength '));
+  var g=document.createElement('input');g.type='range';g.min='0';g.max='2';g.step='0.1';g.value=state.fx.glowK;g.setAttribute('aria-label','Glow strength');
+  g.oninput=function(){state.fx.glowK=+g.value;save();applyFx();renderSkinCSS()};
+  r.appendChild(g);box.appendChild(r);
+}
+(function(){var st=document.createElement('style');st.id='fx-css';st.textContent=FX.map(function(x){return x.css}).join('\n');document.head.appendChild(st)})();
+
 /* ================= SKIN CSS PANEL ================= */
 var cssStandalone=false;
 function curDef(){return SKIN_DEFS.filter(function(d){return d.id===state.skin})[0]||SKIN_DEFS[0]}
@@ -640,7 +687,7 @@ function extrasCSS(d){
   return out;
 }
 function renderSkinCSS(){
-  var d=curDef(),base=skinCSS(d,cssStandalone)+extrasCSS(d);
+  var d=curDef(),base=skinCSS(d,cssStandalone)+extrasCSS(d)+fxCSS();
   $('cssBox').textContent=base;
   $('cssHow').textContent=cssStandalone
     ?'Paste into any stylesheet. Every colour in your page should read from var(--bg), var(--text), var(--accent)…'
@@ -665,6 +712,7 @@ $('cssCopyAll').onclick=function(){
 $('emberToggle').checked=state.embers!==false;
 if(!SKINS.some(function(s){return s.id===state.skin}))state.skin='dark-strings';
 injectSkins();
+applyFx();renderFxControls();
 setSkin(state.skin);
 refresh();
 logLine('console ready — '+state.connectors.length+' connectors loaded','hi');
