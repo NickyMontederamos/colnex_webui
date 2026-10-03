@@ -16,6 +16,10 @@ Every colour, font, radius and shadow must come from CSS custom properties, so t
 
 Tokens: `--bg --bg2 --card --line --line-s --accent --accent2 --on-accent --text --muted --dim --warm --ok --bad --ember (r,g,b triplet) --halo` and structure tokens `--f-head --f-body --f-mono --f-eyebrow --f-btn --ls-head --r-panel --r-btn --r-sm --r-pill --bw --shadow-panel --shadow-node --btn-bg --halo-size`.
 
+Scale tokens (shared by all skins): type `--fs-2xs 10px · --fs-xs 11px · --fs-sm 12.5px · --fs-md 14px · --fs-lg 18px`; motion `--dur-1 180ms · --dur-2 300ms · --dur-3 500ms`, `--ease-out cubic-bezier(0,0,.3,1)`, `--ease-in-out cubic-bezier(.5,0,.5,1)` (Open Props). No ad-hoc font sizes or transition timings.
+
+Every skin must pass WCAG AA: text, muted and accent on card ≥ 4.5:1; big numbers ≥ 3:1; button text on button ≥ 4.5:1. Use `--dim` only for borders and decoration, never for text.
+
 Ship these skins (hex values are the source of truth):
 
 | id | bg / card | accent / accent2 | text |
@@ -68,7 +72,8 @@ Plain, practical English. Short paragraphs. No buzzwords. Say what the thing doe
 1. One `.html` file, opens by double-click.
 2. All colours from tokens; switching `data-skin` fully re-skins the page.
 3. A "Skin CSS" panel that shows the active skin's CSS (scoped and `:root` versions) with copy buttons, plus the CSS of any active effects.
-4. Works at 360px wide with no horizontal scroll.
-5. After the code, list: the skins included, any assumptions, and one thing you would improve next.
+4. Works at 360px wide with no horizontal scroll (long chip rows become one swipeable row).
+5. Exports the active skin as W3C Design Tokens JSON (`$type`/`$value`; colours as `{colorSpace:"srgb",components,alpha,hex}`).
+6. After the code, list: the skins included, any assumptions, and one thing you would improve next.
 
 **Task details:** [DESCRIBE FEATURES, SECTIONS, DATA, AND ANY BRAND COPY HERE]
