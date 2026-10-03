@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Agentic AI &amp; Automation Studio | SlickLab.Digital</title>
+<meta name="description" content="AI agents, workflow automation, ServiceNow AI and MCP servers — built and shipped from Cebu City for businesses worldwide. Free 2-minute autopilot audit.">
+<link rel="canonical" href="https://slicklab.digital/">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<meta name="author" content="Nicole Dominique R. Montederamos">
+<meta name="theme-color" content="#0B0B0E">
+<meta name="geo.region" content="PH-07">
+<meta name="geo.placename" content="Cebu City, Philippines">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SlickLab.Digital">
+<meta property="og:title" content="Agentic AI &amp; Automation Studio | SlickLab.Digital">
+<meta property="og:description" content="AI agents, workflow automation, ServiceNow AI and MCP servers — built and shipped from Cebu City for businesses worldwide. Free 2-minute autopilot audit.">
+<meta property="og:url" content="https://slicklab.digital/">
+<meta property="og:image" content="https://slicklab.digital/assets/images/og-image-v2.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":["Organization","ProfessionalService"],"@id":"https://slicklab.digital/#organization","name":"SlickLab.Digital","url":"https://slicklab.digital/","logo":"https://slicklab.digital/assets/logo/slicklab.png","image":"https://slicklab.digital/assets/images/og-image-v2.jpg","email":"support@slicklab.digital","founder":{"@type":"Person","@id":"https://slicklab.digital/team/#nicole","name":"Nicole Dominique R. Montederamos"},"address":{"@type":"PostalAddress","addressLocality":"Cebu City","addressCountry":"PH"},"areaServed":["PH","AU","US"],"knowsAbout":["Agentic AI","Workflow automation","ServiceNow","Model Context Protocol"],"sameAs":["https://www.linkedin.com/in/nicolemontederamos"]},{"@type":"WebSite","@id":"https://slicklab.digital/#website","url":"https://slicklab.digital/","name":"SlickLab.Digital","publisher":{"@id":"https://slicklab.digital/#organization"},"inLanguage":"en"}]}
+</script>
+
+<style>
+/* ===== Kingdom of Dark Strings — tokens ===== */
+:root{
+  --obsidian:#0B0B0E; --shadow:#16151A; --card:#1C1A22; --rosewood:#332822;
+  --gold-d:#8A724B; --gold:#C2A662; --gold-b:#E5C158;
+  --mist:#4A5868; --marble:#8E9AAF; --parch:#D9CBB0;
+  --f-head:'Cinzel',serif; --f-sub:'Cormorant Garamond',serif; --f-body:'Montserrat',sans-serif;
+  --f-mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  --line:rgba(194,166,98,.28); --glow:0 0 18px rgba(194,166,98,.25);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--obsidian);color:var(--parch);font-family:var(--f-body);font-weight:400;line-height:1.6;overflow-x:hidden;
+  background-image:radial-gradient(ellipse at 50% 0,#1C1A22 0,#0B0B0E 70%)}
+::selection{background:var(--gold-d);color:var(--obsidian)}
+::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:var(--obsidian)}
+::-webkit-scrollbar-thumb{background:var(--rosewood);border:1px solid var(--gold-d);border-radius:4px}
+a{color:inherit;text-decoration:none}
+ul,ol{list-style:none}
+.skip{position:absolute;left:-999px;top:8px;background:var(--gold);color:var(--obsidian);padding:8px 14px;z-index:99}
+.skip:focus{left:8px}
+:focus-visible{outline:2px solid var(--gold-b);outline-offset:3px}
+
+.disp{font-family:var(--f-head);font-weight:700;letter-spacing:.04em;line-height:1.15;color:var(--parch)}
+.mono{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--marble)}
+.sig{color:var(--gold-b)}
+.eyebrow{font-family:var(--f-head);font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+.eyebrow.dark{color:var(--gold-b)}
+.body-l{font-family:var(--f-sub);font-size:21px;font-style:italic;color:var(--marble)}
+.h-hero{font-size:clamp(34px,5.6vw,72px);background:linear-gradient(90deg,var(--gold),var(--parch),var(--gold-d));-webkit-background-clip:text;background-clip:text;color:transparent}
+.h-hero .hl{font-style:normal;color:transparent;-webkit-text-stroke:1px var(--gold-b)}
+.h2-xl{font-size:clamp(28px,3.8vw,48px)}
+.h2-m{font-size:clamp(24px,2.8vw,36px)}
+.h-cta{font-size:clamp(30px,5vw,60px);max-width:16ch;margin-inline:auto}
+.lede{font-family:var(--f-sub);font-size:clamp(19px,1.8vw,24px);font-style:italic;color:var(--marble);max-width:34em}
+
+/* ===== layout ===== */
+.sec,.hero,.cta-big,.site-f{max-width:1280px;margin-inline:auto;padding:clamp(48px,7vw,96px) clamp(16px,4vw,40px)}
+.sec{border-top:1px solid var(--line)}
+.sec-ink{max-width:none;background:var(--shadow);border-block:1px solid var(--line)}
+.sec-ink>*{max-width:1200px;margin-inline:auto;width:100%}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap}
+.sec-head .stack{display:flex;flex-direction:column;gap:16px}
+.side{max-width:380px;font-family:var(--f-sub);font-size:19px;font-style:italic;color:var(--marble)}
+.dots{background-image:radial-gradient(rgba(194,166,98,.18) 1.5px,transparent 1.5px);background-size:24px 24px}
+.stretch{width:100%;justify-content:center}
+
+/* ===== buttons / cards ===== */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-head);font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:14px 24px;border-radius:3px;transition:.35s}
+.btn-ink{background:linear-gradient(90deg,#8A724B,#E5C158 50%,#8A724B);background-size:200% 100%;color:var(--obsidian);box-shadow:var(--glow)}
+.btn-ink:hover{animation:shimmer 2s linear infinite;box-shadow:0 0 22px rgba(229,193,88,.45)}
+.btn-line{border:1px solid var(--gold-d);color:var(--parch);background:rgba(22,21,26,.6)}
+.btn-line:hover{border-color:var(--gold);background:var(--rosewood)}
+.btn-sm{padding:10px 16px;font-size:11px}
+.btn-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;position:relative;transition:.4s}
+a.card:hover{border-color:rgba(194,166,98,.8);box-shadow:var(--glow);transform:translateY(-3px)}
+.card-static:hover{transform:none}
+
+/* ===== header ===== */
+.site-h{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:24px;padding:14px clamp(16px,4vw,40px);background:rgba(11,11,14,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{font-family:var(--f-head);font-weight:900;font-size:20px;letter-spacing:.08em;color:var(--parch)}
+.nav{display:flex;gap:28px;margin-left:auto}
+.nl{font-family:var(--f-head);font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--marble);padding:6px 0;border-bottom:2px solid transparent;transition:.25s}
+.nl:hover{color:var(--gold);border-color:var(--gold)}
+.menu-btn{display:none;margin-left:auto;background:none;border:1px solid var(--gold-d);padding:10px;border-radius:3px;cursor:pointer}
+.menu-btn span{display:block;width:20px;height:2px;background:var(--gold);margin:4px 0}
+.mnav{position:absolute;top:100%;left:0;right:0;background:var(--shadow);border-bottom:1px solid var(--line);padding:12px clamp(16px,4vw,40px)}
+.mnav[hidden]{display:none}
+.mnav a{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-family:var(--f-head);letter-spacing:.1em}
+@media(max-width:1080px){.nav,.hdr-cta{display:none}.menu-btn{display:block}}
+
+/* ===== ticker ===== */
+.ticker-bar{overflow:hidden;background:var(--shadow);border-bottom:1px solid var(--line);padding:9px 0}
+.ticker{display:flex;gap:44px;width:max-content;white-space:nowrap;animation:tick 40s linear infinite}
+@keyframes tick{to{transform:translateX(-50%)}}
+.pulse{animation:pls 1.6s ease-in-out infinite}
+@keyframes pls{50%{opacity:.25}}
+
+/* ===== hero ===== */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,4vw,64px);align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:24px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 22px;color:var(--gold-d)}
+.hero-viz{display:flex;flex-direction:column;gap:14px;min-width:0}
+.orch-static svg,.zoom svg{display:block;width:100%;height:auto}
+.orch{display:none;position:relative;width:640px;height:560px;max-width:100%;margin-inline:auto;border:1px solid var(--line);border-radius:10px;background:rgba(22,21,26,.7)}
+.orch-tl{position:absolute;left:14px;top:12px}.orch-tr{position:absolute;right:14px;top:12px}
+.wires{position:absolute;inset:0}
+.ring{fill:none;stroke:var(--gold-d);stroke-dasharray:3 9}
+.wire{stroke:var(--gold-d);stroke-width:1.5}.wire-d{stroke:var(--gold-d);stroke-width:1.5;stroke-dasharray:6 6}
+.spin{transform-origin:310px 280px;animation:rot 60s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.agent{position:absolute;width:150px;padding:10px 12px;background:var(--card);border:1px solid var(--gold-d);border-radius:4px;display:flex;flex-direction:column;box-shadow:5px 5px 0 #000}
+.agent b{font-size:12px;color:var(--parch);letter-spacing:.14em}.agent i{font-style:normal;font-size:10px;color:var(--mist)}
+.agent-t{border-top:3px solid var(--marble)}.agent-s{border-top:3px solid var(--gold-b)}
+.orch-core{position:absolute;left:230px;top:225px;width:160px;height:110px;display:flex;flex-direction:column;justify-content:center;align-items:center;background:var(--rosewood);border:1px solid var(--gold);box-shadow:var(--glow);border-radius:4px;text-align:center}
+.orch-core b{color:var(--parch);font-family:var(--f-head);letter-spacing:.12em}.orch-core i{font-style:normal;font-size:10px;color:var(--marble)}
+.pk{position:absolute;left:306px;top:276px;width:8px;height:8px;border-radius:50%;background:var(--gold-b);box-shadow:0 0 10px var(--gold-b);animation:fly 3.2s ease-in-out infinite}
+.p1{--x:0px;--y:-210px}.p2{--x:182px;--y:-105px;animation-delay:.5s}.p3{--x:182px;--y:105px;animation-delay:1s}
+.p4{--x:0px;--y:210px;animation-delay:1.5s}.p5{--x:-182px;--y:105px;animation-delay:2s}.p6{--x:-182px;--y:-105px;animation-delay:2.5s}
+@keyframes fly{0%{transform:translate(0,0);opacity:0}15%{opacity:1}85%{opacity:1}100%{transform:translate(var(--x),var(--y));opacity:0}}
+@media(min-width:1000px){.orch{display:block}.orch-static{display:none}}
+.log{background:var(--obsidian);border:1px solid var(--line);border-radius:6px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;text-transform:none;letter-spacing:.02em;font-size:12px}
+.log .ts{color:var(--mist)}.log .hi{color:var(--gold-b)}.log .warn{color:var(--marble)}
+.caret::after{content:'▍';color:var(--gold-b);animation:pls 1s steps(1) infinite}
+@media(max-width:900px){.hero{grid-template-columns:1fr}}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(14px);animation:rv .8s ease forwards}
+.d1{animation-delay:.1s}.d2{animation-delay:.22s}.d3{animation-delay:.34s}.d4{animation-delay:.46s}
+@keyframes rv{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}.reveal{opacity:1;transform:none}}
+
+/* ===== capabilities ===== */
+.caps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.cap .zoom{overflow:hidden;aspect-ratio:3/2;border-bottom:1px solid var(--line)}
+.cap .zoom svg{height:100%;transition:transform .6s}
+.cap:hover .zoom svg{transform:scale(1.05)}
+.cap-body{padding:22px;display:flex;flex-direction:column;gap:10px}
+.cap-meta{display:flex;justify-content:space-between;color:var(--gold-d)}
+.cap h3{font-size:21px}
+.cap p{font-family:var(--f-sub);font-size:18px;color:var(--marble)}
+@media(max-width:900px){.caps{grid-template-columns:1fr}}
+
+/* ===== flow ===== */
+.flow-track{position:relative;height:2px;background:var(--line);margin-block:8px}
+.track-pk{position:absolute;top:-4px;width:10px;height:10px;border-radius:50%;background:var(--gold-b);box-shadow:0 0 12px var(--gold-b);animation:run 6s linear infinite}
+@keyframes run{from{left:0}to{left:100%}}
+.stages{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.stage{display:flex;flex-direction:column;gap:10px;padding:20px;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.stage .disp{font-size:17px}.stage p{font-size:14px;color:var(--marble)}
+.stage-act{border-color:var(--gold-d);background:var(--rosewood)}
+.stage-human{border-color:var(--gold-b);box-shadow:var(--glow)}
+@media(max-width:1000px){.stages{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.stages{grid-template-columns:1fr}}
+
+/* ===== service menu ===== */
+.cur{display:flex;flex-direction:column;gap:6px}
+.cur select{background:var(--shadow);color:var(--parch);border:1px solid var(--gold-d);border-radius:4px;padding:10px 12px;font-family:var(--f-body);font-size:14px}
+.menu{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:48px 1.6fr 1.4fr auto 24px;gap:16px;align-items:center;padding:22px 8px;border-bottom:1px solid var(--line);transition:.3s}
+.row:hover{background:var(--rosewood);padding-inline:20px}
+.row .r-n{color:var(--gold-d)}.row .r-name{font-size:clamp(17px,2vw,24px)}
+.row .r-price{color:var(--gold)}
+.r-tag{border:1px solid var(--gold-d);padding:4px 10px;border-radius:99px;color:var(--gold);font-size:10px}
+.arrow{color:var(--gold)}
+@media(max-width:760px){.row{grid-template-columns:36px 1fr 20px}.r-price,.r-tag{grid-column:2}}
+
+/* ===== lab ===== */
+.labgrid{display:grid;grid-template-columns:1fr 1.2fr;gap:24px}
+.lab-cta{padding:36px;display:flex;flex-direction:column;gap:20px;align-items:flex-start;background:linear-gradient(135deg,var(--rosewood),var(--card))}
+.lab-cta .disp{font-size:clamp(24px,3vw,36px)}
+.calc{padding:32px;display:flex;flex-direction:column;gap:22px}
+.ctl{display:flex;flex-direction:column;gap:16px}
+.ctl label{display:flex;justify-content:space-between;margin-bottom:6px}
+.ctl output{color:var(--gold-b)}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;background:var(--shadow);border:1px solid rgba(138,114,75,.4);border-radius:3px}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--gold);border:2px solid var(--obsidian);box-shadow:0 0 10px rgba(194,166,98,.8);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--gold);border:2px solid var(--obsidian)}
+.calc-out{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.calc-out>div{padding:16px;border:1px solid var(--line);border-radius:6px;display:flex;flex-direction:column;gap:6px}
+.calc-out .dark{background:var(--rosewood);border-color:var(--gold-d)}
+.calc-out .v{font-size:clamp(22px,2.6vw,32px);color:var(--gold-b)}
+@media(max-width:900px){.labgrid{grid-template-columns:1fr}}
+
+/* ===== process ===== */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.proc li{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:2px solid var(--gold-d)}
+.proc .n{font-size:44px;color:var(--gold-d)}.proc .n.sig{color:var(--gold-b)}
+.proc .t{font-size:18px}.proc p{font-family:var(--f-sub);font-size:18px;color:var(--marble)}
+@media(max-width:900px){.proc{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.proc{grid-template-columns:1fr}}
+
+/* ===== live ===== */
+.live{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.live-intro{grid-column:1/-1;display:flex;flex-direction:column;gap:14px;max-width:640px}
+.live .card{padding:20px}
+.mock-h{display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.mock-b{display:flex;flex-direction:column;gap:10px;padding:18px 0}
+.msg{max-width:88%;padding:10px 14px;border-radius:8px;font-size:14px}
+.msg-bot{background:var(--shadow);border:1px solid var(--line)}
+.msg-me{align-self:flex-end;background:var(--rosewood);border:1px solid var(--gold-d)}
+.steps-m{line-height:1.9;color:var(--gold)}
+@media(max-width:760px){.live{grid-template-columns:1fr}}
+
+/* ===== CTA / footer ===== */
+.cta-big{text-align:center;display:flex;flex-direction:column;align-items:center;gap:32px;border-top:1px solid var(--line);position:relative}
+.cta-big::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(194,166,98,.14),transparent 65%);pointer-events:none}
+.cta-note{font-family:var(--f-sub);font-style:italic;font-size:18px;color:var(--marble)}
+.site-f{border-top:1px solid var(--line);background:var(--shadow);max-width:none}
+.f-grid,.f-base{max-width:1200px;margin-inline:auto}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:32px}
+.f-brand p{margin-top:14px;max-width:34ch;font-size:14px;color:var(--marble)}
+.f-logo{font-size:22px}
+.f-col{display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--marble)}
+.f-col a:hover{color:var(--gold)}
+.f-h{color:var(--gold);margin-bottom:6px}
+.f-base{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:40px;padding-top:20px;border-top:1px solid var(--line);text-transform:none;letter-spacing:.04em}
+.f-base a{color:var(--gold)}
+@media(max-width:800px){.f-grid{grid-template-columns:1fr 1fr}}
+
+/* ===== agent launcher ===== */
+.ag-launch{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:12px;padding:12px 18px;background:var(--card);border:1px solid var(--gold);border-radius:99px;box-shadow:var(--glow);transition:.3s}
+.ag-launch:hover{box-shadow:0 0 28px rgba(229,193,88,.45)}
+.ag-launch-ico{width:22px;height:22px;color:var(--gold)}
+.ag-launch-txt{display:flex;flex-direction:column;font-family:var(--f-head);font-size:12px;letter-spacing:.1em;line-height:1.2}
+.ag-launch-txt small{font-family:var(--f-body);font-size:10px;color:var(--marble);letter-spacing:.06em}
+.ag-live{width:8px;height:8px;border-radius:50%;background:var(--gold-b);animation:pls 1.6s infinite}
+
+/* ===== ambient embers (canvas) ===== */
+#embers{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:.55}
+main,header,footer,.ticker-bar{position:relative;z-index:2}
+.site-h{z-index:50}
+
+/* ===== recolour the inline SVG figures to the dark palette ===== */
+svg rect[fill="#EFECE4"]{fill:#0B0B0E}
+svg rect[fill="#F8F6F0"]{fill:#1C1A22}
+svg rect[fill="#121311"]{fill:#000}
+svg [fill="#CFCABC"]{fill:rgba(194,166,98,.28)}
+svg text[fill="#121311"]{fill:#D9CBB0}
+svg text[fill="#F8F6F0"]{fill:#D9CBB0}
+svg text[fill="#77796F"],svg text[fill="#B9BAB2"]{fill:#8E9AAF}
+svg text[fill="#0B8F89"]{fill:#8E9AAF}
+svg text[fill="#B8975A"]{fill:#E5C158}
+svg [stroke="#121311"]{stroke:#8A724B}
+svg [stroke="#0B8F89"]{stroke:#8E9AAF}
+svg [stroke="#B8975A"]{stroke:#E5C158}
+svg [stroke="#CFCABC"]{stroke:rgba(194,166,98,.25)}
+svg rect[fill="#0B8F89"],svg circle[fill="#0B8F89"]{fill:#8E9AAF}
+svg rect[fill="#B8975A"],svg circle[fill="#B8975A"]{fill:#C2A662}
+svg path[fill="#121311"]{fill:#8A724B}
+svg path[fill="#B8975A"]{fill:#E5C158}
+svg polygon[fill="#F8F6F0"]{fill:#1C1A22}
+svg polygon[fill="#BFE3DF"]{fill:#4A5868}
+svg polygon[fill="#121311"]{fill:#332822}
+svg line[stroke="#121311"]{stroke:#8A724B}
+</style>
+</head>
+<body>
+<canvas id="embers" aria-hidden="true"></canvas>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-h">
+  <a class="logo" href="/" aria-label="SlickLab.Digital home">SlickLab<span class="sig">.</span>Digital</a>
+  <nav class="nav" aria-label="Primary">
+    <a class="nl" href="/services/">Services</a>
+    <a class="nl" href="/work/">Work</a>
+    <a class="nl" href="/laboratory/">Laboratory</a>
+    <a class="nl" href="/intelligence/">Intelligence</a>
+    <a class="nl" href="/team/">Team</a>
+  </nav>
+  <a class="btn btn-ink btn-sm hdr-cta" href="/contact/">Start a project <span class="arrow">→</span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <nav class="mnav" id="mnav" aria-label="Mobile" hidden>
+    <a href="/services/"><span class="disp">Services</span><span class="arrow" aria-hidden="true">→</span></a>
+    <a href="/work/"><span class="disp">Work</span><span class="arrow" aria-hidden="true">→</span></a>
+    <a href="/laboratory/"><span class="disp">Laboratory</span><span class="arrow" aria-hidden="true">→</span></a>
+    <a href="/intelligence/"><span class="disp">Intelligence</span><span class="arrow" aria-hidden="true">→</span></a>
+    <a href="/team/"><span class="disp">Team</span><span class="arrow" aria-hidden="true">→</span></a>
+    <a class="mnav-cta" href="/contact/"><span class="mono">Start a project</span><span class="arrow" aria-hidden="true">→</span></a>
+  </nav>
+</header>
+<noscript><style>@media (max-width:1080px){.nav{display:flex!important;flex-wrap:wrap;gap:8px 20px}.menu-btn{display:none!important}.site-h{height:auto;padding-block:12px;flex-wrap:wrap}}</style></noscript>
+<div class="ticker-bar" aria-hidden="true">
+  <div class="ticker mono">
+    <span><span class="pulse" style="color:var(--gold-b)">●</span> ORCHESTRATOR ONLINE</span>
+    <span>PLANNER → TASK ACCEPTED</span>
+    <span>ROUTER → CRM.UPDATE()</span>
+    <span>VERIFIER → CHECKS PASSED</span>
+    <span>AGENT → GET_SERVICES() OK</span>
+    <span>MCP → TOOLS/LIST OK</span>
+    <span>HUMAN REVIEW → APPROVED</span>
+    <span>n8n → WORKFLOW COMPLETE</span>
+    <span><span class="pulse" style="color:var(--gold-b)">●</span> ORCHESTRATOR ONLINE</span>
+    <span>PLANNER → TASK ACCEPTED</span>
+    <span>ROUTER → CRM.UPDATE()</span>
+    <span>VERIFIER → CHECKS PASSED</span>
+    <span>AGENT → GET_SERVICES() OK</span>
+    <span>MCP → TOOLS/LIST OK</span>
+    <span>HUMAN REVIEW → APPROVED</span>
+    <span>n8n → WORKFLOW COMPLETE</span>
+  </div>
+</div>
+
+<main id="main">
+
+<section aria-labelledby="hero-h" class="hero dots">
+  <div class="hero-copy">
+    <p class="eyebrow reveal">AI systems studio · Cebu City → Worldwide</p>
+    <h1 id="hero-h" class="disp h-hero reveal d1">Agentic AI systems that <span class="hl hl-tilt">run</span> your business.</h1>
+    <p class="lede reveal d2">We design and ship the whole stack — the website your clients see, and the AI agents, automations and ServiceNow integrations working quietly behind it.</p>
+    <div class="btn-row hero-cta reveal d3">
+      <a class="btn btn-ink" href="/contact/">Start a project <span class="arrow">→</span></a>
+      <a class="btn btn-line" href="/laboratory/">Take the 2-min audit</a>
+    </div>
+    <ul class="mono trust reveal d4">
+      <li>▣ ServiceNow CSA certified</li><li>▣ Worldwide delivery</li><li>▣ You own the code</li>
+    </ul>
+  </div>
+
+  <div class="hero-viz reveal d2">
+    <div class="orch-static"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="i1-t i1-d" font-family="'Geist Mono','JetBrains Mono',ui-monospace,monospace" focusable="false"><title id="i1-t">Agentic orchestration layer</title><desc id="i1-d">An orchestrator node coordinating six AI agents that connect to business tools like CRM, inbox, ServiceNow, databases and MCP servers.</desc><defs><pattern id="i1-dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.5" fill="#CFCABC"/></pattern><pattern id="i1-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#121311" stroke-width="1.2" opacity=".18"/></pattern><marker id="i1-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#121311"/></marker><marker id="i1-arrS" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B8975A"/></marker></defs><rect width="1600" height="1000" fill="#EFECE4"/><rect width="1600" height="1000" fill="url(#i1-dots)"/><text x="40" y="52" font-size="14" fill="#121311" letter-spacing="3">FIG.00</text><text x="1560" y="52" text-anchor="end" font-size="14" fill="#77796F" letter-spacing="3">ORCHESTRATION LAYER</text><line x1="40" y1="70" x2="1560" y2="70" stroke="#121311" stroke-width="1"/><text x="40" y="968" font-size="12" fill="#77796F" letter-spacing="3">SLICKLAB.DIGITAL / FIG.</text><circle cx="800" cy="520" r="300" fill="none" stroke="#121311" stroke-width="1" stroke-dasharray="3 9"/><circle cx="800" cy="520" r="190" fill="none" stroke="#CFCABC" stroke-width="1"/><path d="M800 520 L800 220" fill="none" stroke="#121311" stroke-width="2"/><circle cx="800.0" cy="355.0" r="6" fill="#B8975A" stroke="#121311" stroke-width="2"/><path d="M800 520 L1060 370" fill="none" stroke="#121311" stroke-width="2" stroke-dasharray="6 6"/><circle cx="942.8941916244323" cy="437.5" r="6" fill="#0B8F89" stroke="#121311" stroke-width="2"/><path d="M800 520 L1060 670" fill="none" stroke="#121311" stroke-width="2"/><circle cx="942.8941916244323" cy="602.5" r="6" fill="#B8975A" stroke="#121311" stroke-width="2"/><path d="M800 520 L800 820" fill="none" stroke="#121311" stroke-width="2" stroke-dasharray="6 6"/><circle cx="800.0" cy="685.0" r="6" fill="#0B8F89" stroke="#121311" stroke-width="2"/><path d="M800 520 L540 670" fill="none" stroke="#121311" stroke-width="2"/><circle cx="657.1058083755677" cy="602.5" r="6" fill="#B8975A" stroke="#121311" stroke-width="2"/><path d="M800 520 L540 370" fill="none" stroke="#121311" stroke-width="2" stroke-dasharray="6 6"/><circle cx="657.1058083755677" cy="437.5" r="6" fill="#0B8F89" stroke="#121311" stroke-width="2"/><rect x="721.0" y="188.0" width="170" height="76" fill="#121311"/><rect x="715.0" y="182.0" width="170" height="76" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><rect x="715.0" y="182.0" width="170" height="8" fill="#0B8F89"/><text x="800.0" y="220.0" text-anchor="middle" font-size="17" font-weight="600" fill="#121311" letter-spacing="1">PLANNER</text><text x="800.0" y="242.0" text-anchor="middle" font-size="12" fill="#77796F" letter-spacing="1">agent.01</text><rect x="980.8076211353316" y="338.0" width="170" height="76" fill="#121311"/><rect x="974.8076211353316" y="332.0" width="170" height="76" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><text x="1059.8076211353316" y="370.0" text-anchor="middle" font-size="17" font-weight="600" fill="#121311" letter-spacing="1">RESEARCH</text><text x="1059.8076211353316" y="392.0" text-anchor="middle" font-size="12" fill="#77796F" letter-spacing="1">agent.02</text><rect x="980.8076211353316" y="638.0" width="170" height="76" fill="#121311"/><rect x="974.8076211353316" y="632.0" width="170" height="76" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><text x="1059.8076211353316" y="670.0" text-anchor="middle" font-size="17" font-weight="600" fill="#121311" letter-spacing="1">WRITER</text><text x="1059.8076211353316" y="692.0" text-anchor="middle" font-size="12" fill="#77796F" letter-spacing="1">agent.03</text><rect x="721.0" y="788.0" width="170" height="76" fill="#121311"/><rect x="715.0" y="782.0" width="170" height="76" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><rect x="715.0" y="782.0" width="170" height="8" fill="#0B8F89"/><text x="800.0" y="820.0" text-anchor="middle" font-size="17" font-weight="600" fill="#121311" letter-spacing="1">VERIFIER</text><text x="800.0" y="842.0" text-anchor="middle" font-size="12" fill="#77796F" letter-spacing="1">agent.04</text><rect x="461.1923788646684" y="638.0" width="170" height="76" fill="#121311"/><rect x="455.1923788646684" y="632.0" width="170" height="76" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><text x="540.1923788646684" y="670.0" text-anchor="middle" font-size="17" font-weight="600" fill="#121311" letter-spacing="1">ROUTER</text><text x="540.1923788646684" y="692.0" text-anchor="middle" font-size="12" fill="#77796F" letter-spacing="1">agent.05</text><rect x="461.1923788646684" y="338.0" width="170" height="76" fill="#121311"/><rect x="455.1923788646684" y="332.0" width="170" height="76" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><text x="540.1923788646684" y="370.0" text-anchor="middle" font-size="17" font-weight="600" fill="#121311" letter-spacing="1">MEMORY</text><text x="540.1923788646684" y="392.0" text-anchor="middle" font-size="12" fill="#77796F" letter-spacing="1">rag.store</text><rect x="686" y="456" width="240" height="140" fill="#121311"/><rect x="680" y="450" width="240" height="140" fill="#121311" stroke="#121311" stroke-width="2"/><text x="800.0" y="520.0" text-anchor="middle" font-size="17" font-weight="600" fill="#F8F6F0" letter-spacing="1">ORCHESTRATOR</text><text x="800.0" y="542.0" text-anchor="middle" font-size="12" fill="#B9BAB2" letter-spacing="1">loop · plan/act/verify</text><circle cx="900" cy="470" r="7" fill="#B8975A"/><rect x="150" y="260" width="150" height="56" fill="url(#i1-hatch)" stroke="#121311" stroke-width="2"/><rect x="150" y="260" width="150" height="56" fill="#F8F6F0" opacity=".7"/><text x="225" y="294" text-anchor="middle" font-size="14" font-weight="600" fill="#121311" letter-spacing="1">CRM</text><rect x="150" y="470" width="150" height="56" fill="url(#i1-hatch)" stroke="#121311" stroke-width="2"/><rect x="150" y="470" width="150" height="56" fill="#F8F6F0" opacity=".7"/><text x="225" y="504" text-anchor="middle" font-size="14" font-weight="600" fill="#121311" letter-spacing="1">INBOX</text><rect x="150" y="680" width="150" height="56" fill="url(#i1-hatch)" stroke="#121311" stroke-width="2"/><rect x="150" y="680" width="150" height="56" fill="#F8F6F0" opacity=".7"/><text x="225" y="714" text-anchor="middle" font-size="14" font-weight="600" fill="#121311" letter-spacing="1">SERVICENOW</text><rect x="1300" y="260" width="150" height="56" fill="url(#i1-hatch)" stroke="#121311" stroke-width="2"/><rect x="1300" y="260" width="150" height="56" fill="#F8F6F0" opacity=".7"/><text x="1375" y="294" text-anchor="middle" font-size="14" font-weight="600" fill="#121311" letter-spacing="1">DATABASE</text><rect x="1300" y="470" width="150" height="56" fill="url(#i1-hatch)" stroke="#121311" stroke-width="2"/><rect x="1300" y="470" width="150" height="56" fill="#F8F6F0" opacity=".7"/><text x="1375" y="504" text-anchor="middle" font-size="14" font-weight="600" fill="#121311" letter-spacing="1">WEBHOOKS</text><rect x="1300" y="680" width="150" height="56" fill="url(#i1-hatch)" stroke="#121311" stroke-width="2"/><rect x="1300" y="680" width="150" height="56" fill="#F8F6F0" opacity=".7"/><text x="1375" y="714" text-anchor="middle" font-size="14" font-weight="600" fill="#121311" letter-spacing="1">MCP SERVER</text><path d="M300 288 H400 V360 H430" fill="none" stroke="#121311" stroke-width="2" marker-end="url(#i1-arr)"/><path d="M300 498 H430" fill="none" stroke="#121311" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#i1-arr)"/><path d="M300 708 H400 V660 H450" fill="none" stroke="#121311" stroke-width="2" marker-end="url(#i1-arr)"/><path d="M1300 288 H1200 V360 H1170" fill="none" stroke="#B8975A" stroke-width="2" marker-end="url(#i1-arrS)"/><path d="M1300 498 H1170" fill="none" stroke="#121311" stroke-width="2" stroke-dasharray="6 6" marker-end="url(#i1-arr)"/><path d="M1300 708 H1200 V660 H1150" fill="none" stroke="#B8975A" stroke-width="2" marker-end="url(#i1-arrS)"/><g><rect x="560" y="880" width="181.6" height="26" fill="#F8F6F0" stroke="#0B8F89" stroke-width="1.5"/><text x="571" y="897.5" font-size="12" fill="#0B8F89" letter-spacing="1">HUMAN-IN-THE-LOOP ✓</text></g><g><rect x="820" y="880" width="173.20000000000002" height="26" fill="#F8F6F0" stroke="#121311" stroke-width="1.5"/><text x="831" y="897.5" font-size="12" fill="#121311" letter-spacing="1">TRACED · LANGSMITH</text></g></svg></div>
+    <div class="orch" role="img" aria-label="Live diagram: an orchestrator coordinating six AI agents">
+      <div class="mono orch-tl">FIG.00 — ORCHESTRATION LAYER</div>
+      <div class="mono orch-tr"><span class="pulse" style="color:var(--gold-b)">●</span> LIVE</div>
+      <svg class="wires" width="640" height="560" aria-hidden="true" focusable="false">
+        <g class="spin"><circle class="ring" cx="310" cy="280" r="210"/></g>
+        <circle cx="310" cy="280" r="130" fill="none" stroke="rgba(194,166,98,.25)"/>
+        <line class="wire" x1="310" y1="280" x2="310" y2="70"/>
+        <line class="wire-d" x1="310" y1="280" x2="492" y2="175"/>
+        <line class="wire" x1="310" y1="280" x2="492" y2="385"/>
+        <line class="wire-d" x1="310" y1="280" x2="310" y2="490"/>
+        <line class="wire" x1="310" y1="280" x2="128" y2="385"/>
+        <line class="wire-d" x1="310" y1="280" x2="128" y2="175"/>
+      </svg>
+      <div class="pk p1"></div><div class="pk p2"></div><div class="pk p3"></div><div class="pk p4"></div><div class="pk p5"></div><div class="pk p6"></div>
+      <div class="agent agent-t mono" style="left:235px;top:39px"><b>Planner</b><i>agent.01</i></div>
+      <div class="agent mono" style="left:417px;top:144px"><b>Research</b><i>agent.02</i></div>
+      <div class="agent agent-s mono" style="left:417px;top:354px"><b>Writer</b><i>agent.03</i></div>
+      <div class="agent mono" style="left:235px;top:459px"><b>Verifier</b><i>agent.04</i></div>
+      <div class="agent agent-t mono" style="left:53px;top:354px"><b>Router</b><i>agent.05</i></div>
+      <div class="agent mono" style="left:53px;top:144px"><b>Memory</b><i>rag.store</i></div>
+      <div class="orch-core mono"><b>Orchestrator</b><i>plan · act · verify</i></div>
+    </div>
+    <div class="log mono" aria-label="Example agent log">
+      <div><span class="ts">09:14:02</span>  inbound.email → classified: <span class="hi">quote_request</span></div>
+      <div><span class="ts">09:14:03</span>  crm.lookup(contact) → found</div>
+      <div><span class="ts">09:14:05</span>  draft.reply → verifier: <span class="warn">tone ok · price ok</span></div>
+      <div class="caret"><span class="ts">09:14:06</span>  awaiting human approval</div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="cap-h" class="sec" style="display:flex;flex-direction:column;gap:clamp(32px,4vw,56px)">
+  <div class="sec-head">
+    <div class="stack">
+      <p class="eyebrow">01 / What we do</p>
+      <h2 id="cap-h" class="disp h2-xl">Three capabilities.<br><span class="sig">One system.</span></h2>
+    </div>
+    <p class="side">Everything we build connects to one goal: an intelligence layer that lets your business scale without adding headcount.</p>
+  </div>
+  <div class="caps">
+    <a class="card cap" href="/services/#agentic-ai">
+      <div class="zoom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="'Geist Mono','JetBrains Mono',ui-monospace,monospace" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid slice"><defs><pattern id="i2-dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.5" fill="#CFCABC"/></pattern><pattern id="i2-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#121311" stroke-width="1.2" opacity=".18"/></pattern><marker id="i2-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#121311"/></marker><marker id="i2-arrS" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B8975A"/></marker></defs><rect width="1200" height="800" fill="#EFECE4"/><rect width="1200" height="800" fill="url(#i2-dots)"/><text x="40" y="52" font-size="14" fill="#121311" letter-spacing="3">FIG.01</text><text x="1160" y="52" text-anchor="end" font-size="14" fill="#77796F" letter-spacing="3">AGENTIC AI ORCHESTRATION</text><line x1="40" y1="70" x2="1160" y2="70" stroke="#121311" stroke-width="1"/><text x="40" y="768" font-size="12" fill="#77796F" letter-spacing="3">SLICKLAB.DIGITAL / FIG.</text><circle cx="600" cy="430" r="220" fill="none" stroke="#121311" stroke-width="2"/><circle cx="600" cy="430" r="220" fill="none" stroke="#B8975A" stroke-width="6" stroke-dasharray="120 1260" transform="rotate(-100 600 430)"/><rect x="516.0" y="180.0" width="180" height="72" fill="#121311"/><rect x="510.0" y="174.0" width="180" height="72" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><text x="600.0" y="216.0" text-anchor="middle" font-size="17" font-weight="600" fill="#121311" letter-spacing="1">PLAN</text><rect x="706.5255888325765" y="510.0" width="180" height="72" fill="#121311"/><rect x="700.5255888325765" y="504.0" width="180" height="72" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><rect x="700.5255888325765" y="504.0" width="180" height="8" fill="#0B8F89"/><text x="790.5255888325765" y="546.0" text-anchor="middle" font-size="17" font-weight="600" fill="#121311" letter-spacing="1">EXECUTE</text><rect x="325.47441116742345" y="510.0" width="180" height="72" fill="#121311"/><rect x="319.47441116742345" y="504.0" width="180" height="72" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><rect x="319.47441116742345" y="504.0" width="180" height="8" fill="#B8975A"/><text x="409.47441116742345" y="546.0" text-anchor="middle" font-size="17" font-weight="600" fill="#121311" letter-spacing="1">VERIFY</text><rect x="526" y="391" width="160" height="90" fill="#121311"/><rect x="520" y="385" width="160" height="90" fill="#121311" stroke="#121311" stroke-width="2"/><text x="600.0" y="430.0" text-anchor="middle" font-size="17" font-weight="600" fill="#F8F6F0" letter-spacing="1">GOAL</text><text x="600.0" y="452.0" text-anchor="middle" font-size="12" fill="#B9BAB2" letter-spacing="1">ticket #4821</text><g><rect x="80" y="640" width="106.0" height="26" fill="#F8F6F0" stroke="#121311" stroke-width="1.5"/><text x="91" y="657.5" font-size="12" fill="#121311" letter-spacing="1">TOOL CALLS</text></g><g><rect x="260" y="640" width="122.80000000000001" height="26" fill="#F8F6F0" stroke="#B8975A" stroke-width="1.5"/><text x="271" y="657.5" font-size="12" fill="#B8975A" letter-spacing="1">SELF-CORRECT</text></g><g><rect x="410" y="640" width="122.80000000000001" height="26" fill="#F8F6F0" stroke="#0B8F89" stroke-width="1.5"/><text x="421" y="657.5" font-size="12" fill="#0B8F89" letter-spacing="1">STATUS: DONE</text></g></svg></div>
+      <div class="cap-body">
+        <div class="mono cap-meta"><span>A · Flagship</span><span class="arrow" aria-hidden="true">→</span></div>
+        <h3 class="disp">Agentic AI orchestration</h3>
+        <p>Multi-agent systems that observe, decide and act across your tools and data. Built for production, not demos.</p>
+      </div>
+    </a>
+    <a class="card cap" href="/services/#automation">
+      <div class="zoom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="'Geist Mono','JetBrains Mono',ui-monospace,monospace" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid slice"><defs><pattern id="i3-dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.5" fill="#CFCABC"/></pattern><pattern id="i3-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#121311" stroke-width="1.2" opacity=".18"/></pattern><marker id="i3-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#121311"/></marker><marker id="i3-arrS" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B8975A"/></marker></defs><rect width="1200" height="800" fill="#EFECE4"/><rect width="1200" height="800" fill="url(#i3-dots)"/><text x="40" y="52" font-size="14" fill="#121311" letter-spacing="3">FIG.03</text><text x="1160" y="52" text-anchor="end" font-size="14" fill="#77796F" letter-spacing="3">AI WORKFLOW AUTOMATION</text><line x1="40" y1="70" x2="1160" y2="70" stroke="#121311" stroke-width="1"/><text x="40" y="768" font-size="12" fill="#77796F" letter-spacing="3">SLICKLAB.DIGITAL / FIG.</text><rect x="76" y="336" width="170" height="90" fill="#121311"/><rect x="70" y="330" width="170" height="90" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><rect x="70" y="330" width="170" height="8" fill="#B8975A"/><text x="155.0" y="375.0" text-anchor="middle" font-size="17" font-weight="600" fill="#121311" letter-spacing="1">TRIGGER</text><text x="155.0" y="397.0" text-anchor="middle" font-size="12" fill="#77796F" letter-spacing="1">form.submit</text><path d="M240 375 C270 375 260 295 285 295" fill="none" stroke="#121311" stroke-width="2" marker-end="url(#i3-arr)"/><rect x="296" y="256" width="170" height="90" fill="#121311"/><rect x="290" y="250" width="170" height="90" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><text x="375.0" y="295.0" text-anchor="middle" font-size="17" font-weight="600" fill="#121311" letter-spacing="1">ENRICH</text><text x="375.0" y="317.0" text-anchor="middle" font-size="12" fill="#77796F" letter-spacing="1">clearbit</text><path d="M460 295 C490 295 480 375 505 375" fill="none" stroke="#121311" stroke-width="2" marker-end="url(#i3-arr)"/><rect x="516" y="336" width="170" height="90" fill="#121311"/><rect x="510" y="330" width="170" height="90" fill="#121311" stroke="#121311" stroke-width="2"/><text x="595.0" y="375.0" text-anchor="middle" font-size="17" font-weight="600" fill="#F8F6F0" letter-spacing="1">ROUTE</text><text x="595.0" y="397.0" text-anchor="middle" font-size="12" fill="#B9BAB2" letter-spacing="1">if/else</text><path d="M680 375 C710 375 700 295 725 295" fill="none" stroke="#121311" stroke-width="2" marker-end="url(#i3-arr)"/><rect x="736" y="256" width="170" height="90" fill="#121311"/><rect x="730" y="250" width="170" height="90" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><rect x="730" y="250" width="170" height="8" fill="#0B8F89"/><text x="815.0" y="295.0" text-anchor="middle" font-size="17" font-weight="600" fill="#121311" letter-spacing="1">CRM</text><text x="815.0" y="317.0" text-anchor="middle" font-size="12" fill="#77796F" letter-spacing="1">create deal</text><path d="M900 295 C930 295 920 375 945 375" fill="none" stroke="#121311" stroke-width="2" marker-end="url(#i3-arr)"/><rect x="956" y="336" width="170" height="90" fill="#121311"/><rect x="950" y="330" width="170" height="90" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><text x="1035.0" y="375.0" text-anchor="middle" font-size="17" font-weight="600" fill="#121311" letter-spacing="1">NOTIFY</text><text x="1035.0" y="397.0" text-anchor="middle" font-size="12" fill="#77796F" letter-spacing="1">slack</text><circle cx="120" cy="560" r="6" fill="#0B8F89" stroke="#121311" stroke-width="2"/><circle cx="300" cy="560" r="6" fill="#B8975A" stroke="#121311" stroke-width="2"/><circle cx="480" cy="560" r="6" fill="#0B8F89" stroke="#121311" stroke-width="2"/><circle cx="660" cy="560" r="6" fill="#B8975A" stroke="#121311" stroke-width="2"/><circle cx="840" cy="560" r="6" fill="#0B8F89" stroke="#121311" stroke-width="2"/><circle cx="1020" cy="560" r="6" fill="#B8975A" stroke="#121311" stroke-width="2"/><line x1="80" y1="560" x2="1120" y2="560" stroke="#121311" stroke-width="1.5" stroke-dasharray="2 8"/><g><rect x="80" y="610" width="106.0" height="26" fill="#F8F6F0" stroke="#121311" stroke-width="1.5"/><text x="91" y="627.5" font-size="12" fill="#121311" letter-spacing="1">RUNS: 24/7</text></g><g><rect x="270" y="610" width="139.60000000000002" height="26" fill="#F8F6F0" stroke="#0B8F89" stroke-width="1.5"/><text x="281" y="627.5" font-size="12" fill="#0B8F89" letter-spacing="1">MANUAL STEPS 0</text></g></svg></div>
+      <div class="cap-body">
+        <div class="mono cap-meta"><span>B · Fast ROI</span><span class="arrow" aria-hidden="true">→</span></div>
+        <h3 class="disp">AI workflow automation</h3>
+        <p>n8n, Make.com and custom pipelines that stop your team doing what software should be doing for them.</p>
+      </div>
+    </a>
+    <a class="card cap" href="/services/#web-dev">
+      <div class="zoom"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" font-family="'Geist Mono','JetBrains Mono',ui-monospace,monospace" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid slice"><defs><pattern id="i4-dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1.5" fill="#CFCABC"/></pattern><pattern id="i4-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#121311" stroke-width="1.2" opacity=".18"/></pattern><marker id="i4-arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#121311"/></marker><marker id="i4-arrS" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B8975A"/></marker></defs><rect width="1200" height="800" fill="#EFECE4"/><rect width="1200" height="800" fill="url(#i4-dots)"/><text x="40" y="52" font-size="14" fill="#121311" letter-spacing="3">FIG.06</text><text x="1160" y="52" text-anchor="end" font-size="14" fill="#77796F" letter-spacing="3">WEB AND APP DEVELOPMENT</text><line x1="40" y1="70" x2="1160" y2="70" stroke="#121311" stroke-width="1"/><text x="40" y="768" font-size="12" fill="#77796F" letter-spacing="3">SLICKLAB.DIGITAL / FIG.</text><rect x="206" y="146" width="600" height="400" fill="#121311"/><rect x="200" y="140" width="600" height="400" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><rect x="200" y="140" width="600" height="36" fill="#EFECE4" stroke="#121311" stroke-width="2"/><circle cx="222" cy="158" r="5" fill="#B8975A"/><circle cx="242" cy="158" r="5" fill="#121311"/><circle cx="262" cy="158" r="5" fill="#0B8F89"/><rect x="290" y="148" width="300" height="20" fill="#F8F6F0" stroke="#121311" stroke-width="1"/><text x="302" y="163" font-size="11" fill="#77796F">client-portal.app</text><rect x="230" y="200" width="300" height="34" fill="#121311"/><rect x="230" y="248" width="220" height="12" fill="#CFCABC"/><rect x="230" y="270" width="260" height="12" fill="#CFCABC"/><rect x="230" y="300" width="120" height="36" fill="#B8975A" stroke="#121311" stroke-width="2"/><rect x="230" y="370" width="165" height="140" fill="#EFECE4" stroke="#121311" stroke-width="1.5"/><rect x="415" y="370" width="165" height="140" fill="#EFECE4" stroke="#121311" stroke-width="1.5"/><rect x="600" y="370" width="165" height="140" fill="#EFECE4" stroke="#121311" stroke-width="1.5"/><rect x="590" y="200" width="180" height="136" fill="url(#i4-hatch)" stroke="#121311" stroke-width="1.5"/><polygon points="860,210 990,170 1120,210 990,250" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><text x="990" y="215" text-anchor="middle" font-size="11" font-weight="600" fill="#121311">UI · NEXT.JS / REACT</text><polygon points="860,330 990,290 1120,330 990,370" fill="#F8F6F0" stroke="#121311" stroke-width="2"/><text x="990" y="335" text-anchor="middle" font-size="11" font-weight="600" fill="#121311">API · PHP · NODE</text><polygon points="860,450 990,410 1120,450 990,490" fill="#BFE3DF" stroke="#121311" stroke-width="2"/><text x="990" y="455" text-anchor="middle" font-size="11" font-weight="600" fill="#121311">AI LAYER · AGENTS</text><polygon points="860,570 990,530 1120,570 990,610" fill="#121311"/><text x="990" y="575" text-anchor="middle" font-size="11" font-weight="600" fill="#F8F6F0">DATA · MYSQL</text><path d="M810 340 H850" fill="none" stroke="#B8975A" stroke-width="2" marker-end="url(#i4-arrS)"/></svg></div>
+      <div class="cap-body">
+        <div class="mono cap-meta"><span>C · Foundation</span><span class="arrow" aria-hidden="true">→</span></div>
+        <h3 class="disp">Web &amp; software development</h3>
+        <p>Production web apps and client portals, engineered from day one to carry the AI running on top.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section aria-labelledby="flow-h" class="sec sec-ink" style="display:flex;flex-direction:column;gap:clamp(32px,4.4vw,64px)">
+  <div class="sec-head">
+    <div class="stack">
+      <p class="eyebrow dark">02 / How a request moves</p>
+      <h2 id="flow-h" class="disp h2-xl">From inbox to done.<br>No one touched it.</h2>
+    </div>
+    <p class="side" style="max-width:420px">Every system we ship has a human checkpoint where it matters — and full tracing so you can see each decision.</p>
+  </div>
+  <div class="flow-track" aria-hidden="true"><div class="track-pk"></div></div>
+  <ol class="stages">
+    <li class="stage"><span class="mono">01 · Trigger</span><span class="disp">Something happens</span><p>A form, email, ticket or webhook lands.</p></li>
+    <li class="stage"><span class="mono">02 · Understand</span><span class="disp">Agent reads it</span><p>Classifies intent, pulls context from your data.</p></li>
+    <li class="stage stage-act"><span class="mono">03 · Act</span><span class="disp">Tools get used</span><p>CRM, ServiceNow, database — via secure MCP tools.</p></li>
+    <li class="stage"><span class="mono">04 · Verify</span><span class="disp">Output is checked</span><p>A second agent tests the result before it ships.</p></li>
+    <li class="stage stage-human"><span class="mono">05 · Human</span><span class="disp">You approve</span><p>Only where it matters. Everything is logged.</p></li>
+  </ol>
+</section>
+
+<section aria-labelledby="svc-h" class="sec" style="display:flex;flex-direction:column;gap:clamp(28px,3.5vw,48px)">
+  <div class="sec-head">
+    <div class="stack">
+      <p class="eyebrow">03 / Service menu</p>
+      <h2 id="svc-h" class="disp h2-xl">What we can build for you</h2>
+    </div>
+    <div class="cur"><label class="mono" for="cur-1">Prices in</label><select id="cur-1" data-currency><option value="USD">United States — Dollar (USD)</option><option value="PHP">Philippines — Peso (PHP)</option><option value="CNY">China — Yuan / Renminbi (CNY)</option><option value="GBP">United Kingdom — Pound Sterling (GBP)</option><option value="EUR">France / Germany — Euro (EUR)</option><option value="CAD">Canada — Dollar (CAD)</option><option value="AED">United Arab Emirates — Dirham (AED)</option><option value="ILS">Israel — New Shekel (ILS)</option></select><span class="mono">Indicative conversion · billed as agreed</span></div>
+  </div>
+  <div class="menu">
+    <a class="row" href="/services/#ai-audit"><span class="mono r-n">01</span><span class="disp r-name">AI Readiness Audit</span><span class="mono r-price"><span data-price data-min="180" data-max="600" data-suffix=" · one-time">$180 – $600 · one-time</span></span><span class="mono r-tag">Start here</span><span class="arrow" aria-hidden="true">→</span></a>
+    <a class="row" href="/services/#agentic-ai"><span class="mono r-n">02</span><span class="disp r-name">Agentic AI Systems</span><span class="mono r-price"><span data-price data-min="2000" data-max="35000" data-suffix="">$2,000 – $35,000</span></span><span class="mono r-tag">Flagship</span><span class="arrow" aria-hidden="true">→</span></a>
+    <a class="row" href="/services/#automation"><span class="mono r-n">03</span><span class="disp r-name">AI Workflow Automation</span><span class="mono r-price"><span data-price data-min="10" data-max="20" data-suffix=" / month">$10 – $20 / month</span></span><span class="mono r-tag">Fast to ship</span><span class="arrow" aria-hidden="true">→</span></a>
+    <a class="row" href="/services/#servicenow"><span class="mono r-n">04</span><span class="disp r-name">ServiceNow AI Integration</span><span class="mono r-price"><span data-price data-min="3500" data-max="20000" data-suffix="">$3,500 – $20,000</span></span><span class="mono r-tag">Rare skill</span><span class="arrow" aria-hidden="true">→</span></a>
+    <a class="row" href="/services/#mcp"><span class="mono r-n">05</span><span class="disp r-name">MCP Server Development</span><span class="mono r-price"><span data-price data-min="1400" data-max="10000" data-suffix="">$1,400 – $10,000</span></span><span class="mono r-tag">Emerging</span><span class="arrow" aria-hidden="true">→</span></a>
+    <a class="row" href="/services/#web-dev"><span class="mono r-n">06</span><span class="disp r-name">Web &amp; App Development</span><span class="mono r-price"><span data-price data-min="600" data-max="3000" data-suffix="">$600 – $3,000</span></span><span class="mono r-tag">Bundled with AI</span><span class="arrow" aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<section aria-labelledby="lab-h" class="sec dots">
+  <div class="labgrid">
+    <a class="card lab-cta" href="/laboratory/">
+      <p class="eyebrow">04 / Free tool · no email</p>
+      <h2 id="lab-h" class="disp">How automated is your business, really?</h2>
+      <p class="body-l">Five questions. Two minutes. Find out if you're early, ready, or already leaving money on the table.</p>
+      <span class="btn btn-ink">Run the audit <span class="arrow">→</span></span>
+    </a>
+    <div class="card card-static calc" data-calc>
+      <p class="eyebrow">05 / Run the numbers</p>
+      <h3 class="disp">What is manual work costing you?</h3>
+      <div class="ctl">
+        <div><label class="mono" for="c-hours">Hours / week on repeat tasks <output data-calc-hours-out>20</output></label><input id="c-hours" type="range" min="1" max="80" value="20" data-calc-hours></div>
+        <div><label class="mono" for="c-staff">Staff doing them <output data-calc-staff-out>3</output></label><input id="c-staff" type="range" min="1" max="20" value="3" data-calc-staff></div>
+        <div><label class="mono" for="c-rate">Hourly cost (USD) <output data-calc-rate-out>$8</output></label><input id="c-rate" type="range" min="3" max="80" value="8" data-calc-rate></div>
+      </div>
+      <div class="calc-out" aria-live="polite">
+        <div><span class="mono k">Manual cost / month</span><span class="disp v" data-calc-month>$2,080</span></div>
+        <div class="dark"><span class="mono k">Yearly, if automated</span><span class="disp v" data-calc-year>$24,960</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="proc-h" class="sec" style="display:flex;flex-direction:column;gap:clamp(32px,4vw,56px)">
+  <div class="stack" style="display:flex;flex-direction:column;gap:18px">
+    <p class="eyebrow">06 / Process</p>
+    <h2 id="proc-h" class="disp h2-xl">First call to live system</h2>
+  </div>
+  <ol class="proc">
+    <li><span class="disp n sig">01</span><span class="disp t">Discovery</span><p>Free 30-minute call. We find the highest-value problem to solve first.</p></li>
+    <li><span class="disp n">02</span><span class="disp t">Design &amp; scope</span><p>Architecture, deliverables and success numbers — agreed in writing.</p></li>
+    <li><span class="disp n">03</span><span class="disp t">Build &amp; test</span><p>Weekly progress in Notion and Loom. Tested against real edge cases.</p></li>
+    <li><span class="disp n sig">04</span><span class="disp t">Launch &amp; maintain</span><p>Handover with docs. Optional retainer as models and APIs change.</p></li>
+  </ol>
+</section>
+
+<section aria-labelledby="live-h" id="live" class="sec live">
+  <div class="live-intro">
+    <p class="eyebrow">07 / Live systems</p>
+    <h2 id="live-h" class="disp h2-m">Not demos. The systems we actually run.</h2>
+    <p class="body-l">We built these. They run our business. Try them — then imagine one running yours.</p>
+  </div>
+  <div class="card card-static">
+    <div class="mono mock-h"><span>SlickLab Agent · Featured project</span><span><span class="pulse" style="color:var(--gold-b)">●</span> Online</span></div>
+    <div class="mock-b">
+      <div class="msg msg-bot">Hi! What are you working on?</div>
+      <div class="msg msg-me">We answer the same 20 support emails every day.</div>
+      <div class="msg msg-bot caret">That's a great fit for an email triage agent. How many</div>
+    </div>
+    <a class="btn btn-ink stretch" href="/contact/" data-agent-open style="margin-bottom:12px">Talk to it now <span class="arrow">→</span></a>
+    <a class="btn btn-line stretch" href="/work/">See the project <span class="arrow">→</span></a>
+  </div>
+  <div class="card card-static">
+    <div class="mono mock-h"><span>Agentic email manager</span></div>
+    <div class="mock-b" style="padding:24px 0;gap:16px">
+      <p style="font-size:17px;line-height:1.55">Send any email — formal, casual, random. It reads your tone and replies in kind.</p>
+      <div class="mono steps-m">→ read tone<br>→ draft reply<br>→ verify<br>→ send</div>
+    </div>
+    <a class="btn btn-line stretch" href="mailto:support@slicklab.digital" style="text-transform:none">support@slicklab.digital <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<section aria-labelledby="cta-h" class="cta-big">
+  <h2 id="cta-h" class="disp h-cta">Let's build something that runs itself.</h2>
+  <div class="btn-row" style="gap:20px;justify-content:center">
+    <a class="btn btn-ink" href="/contact/">Start a project <span class="arrow">→</span></a>
+    <span class="cta-note">Reply within 24 hours. No sales pitch.</span>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-f">
+  <div class="f-grid">
+    <div class="f-brand">
+      <span class="disp f-logo">SlickLab<span class="sig">.</span>Digital</span>
+      <p>AI systems studio in Cebu City, Philippines. Agentic AI, workflow automation, ServiceNow and full-stack builds for clients worldwide.</p>
+    </div>
+    <nav aria-label="Footer services" class="f-col">
+      <span class="mono f-h">Services</span>
+      <a href="/services/#agentic-ai">Agentic AI</a>
+      <a href="/services/#automation">Automation</a>
+      <a href="/services/#servicenow">ServiceNow AI</a>
+      <a href="/services/#mcp">MCP servers</a>
+    </nav>
+    <nav aria-label="Footer studio" class="f-col">
+      <span class="mono f-h">Studio</span>
+      <a href="/work/">Work</a>
+      <a href="/team/">Team</a>
+      <a href="/intelligence/">Intelligence</a>
+      <a href="/laboratory/">Laboratory</a>
+    </nav>
+    <div class="f-col">
+      <span class="mono f-h">Contact</span>
+      <a href="mailto:support@slicklab.digital">support@slicklab.digital</a>
+      <a href="/contact/" data-agent-open>Chat with the agent</a>
+      <a href="/" data-agent-tour>Take the site tour</a>
+      <span>Cebu City, PH · GMT+8</span>
+    </div>
+  </div>
+  <div class="mono f-base"><span>© 2026 SlickLab.Digital</span><span>Data privacy: RA 10173 compliant · <a href="/privacy/">Privacy notice</a></span></div>
+</footer>
+
+<div class="ag" id="sl-agent" data-agent data-page="/" data-endpoint="/chat.php">
+  <a class="ag-launch" href="/contact/" data-agent-launch>
+    <span class="ag-launch-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M3 4h18v12H10l-5 4v-4H3z"/><path d="M8 8.5h8M8 11.5h5"/></svg></span>
+    <span class="ag-launch-txt"><span>Ask the agent</span><small>Online now</small></span>
+    <span class="ag-live" aria-hidden="true"></span>
+  </a>
+</div>
+
+<script>
+/* mobile menu */
+(function(){
+  var b=document.querySelector('.menu-btn'),m=document.getElementById('mnav');
+  if(!b||!m)return;
+  b.addEventListener('click',function(){
+    var open=b.getAttribute('aria-expanded')==='true';
+    b.setAttribute('aria-expanded',String(!open));
+    m.hidden=open;
+  });
+})();
+
+/* indicative currency conversion */
+(function(){
+  var sel=document.querySelector('[data-currency]');
+  if(!sel)return;
+  var rate={USD:1,PHP:58,CNY:7.2,GBP:.78,EUR:.92,CAD:1.37,AED:3.67,ILS:3.6};
+  var sym={USD:'$',PHP:'₱',CNY:'¥',GBP:'£',EUR:'€',CAD:'C$',AED:'AED ',ILS:'₪'};
+  function round(v,c){
+    if(c==='USD'||v<100)return Math.round(v);
+    var s=v>=10000?100:50;return Math.round(v/s)*s;
+  }
+  function fmt(v,c){return sym[c]+round(v,c).toLocaleString('en-US');}
+  function update(){
+    var c=sel.value;
+    document.querySelectorAll('[data-price]').forEach(function(el){
+      var lo=+el.dataset.min*rate[c],hi=+el.dataset.max*rate[c];
+      el.textContent=fmt(lo,c)+' – '+fmt(hi,c)+(el.dataset.suffix||'');
+    });
+  }
+  sel.addEventListener('change',update);
+})();
+
+/* manual-work calculator */
+(function(){
+  var root=document.querySelector('[data-calc]');
+  if(!root)return;
+  var h=root.querySelector('[data-calc-hours]'),s=root.querySelector('[data-calc-staff]'),r=root.querySelector('[data-calc-rate]');
+  function run(){
+    var month=Math.round(h.value*s.value*r.value*52/12/10)*10;
+    root.querySelector('[data-calc-hours-out]').textContent=h.value;
+    root.querySelector('[data-calc-staff-out]').textContent=s.value;
+    root.querySelector('[data-calc-rate-out]').textContent='$'+r.value;
+    root.querySelector('[data-calc-month]').textContent='$'+month.toLocaleString('en-US');
+    root.querySelector('[data-calc-year]').textContent='$'+(month*12).toLocaleString('en-US');
+  }
+  [h,s,r].forEach(function(el){el.addEventListener('input',run)});
+  run();
+})();
+
+/* ambient gold embers */
+(function(){
+  var c=document.getElementById('embers');
+  if(!c||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var x=c.getContext('2d'),p=[];
+  function size(){c.width=innerWidth;c.height=innerHeight}
+  addEventListener('resize',size);size();
+  function mk(){return{x:Math.random()*c.width,y:c.height+Math.random()*50,r:Math.random()*2+.5,vy:Math.random()*.8+.2,vx:(Math.random()-.5)*.4,o:Math.random()*.6+.2}}
+  for(var i=0;i<45;i++){var q=mk();q.y=Math.random()*c.height;p.push(q)}
+  (function loop(){
+    x.clearRect(0,0,c.width,c.height);
+    p.forEach(function(q,i){
+      q.y-=q.vy;q.x+=q.vx;
+      if(q.y<-10)p[i]=mk();
+      x.fillStyle='rgba(194,166,98,'+q.o+')';
+      x.beginPath();x.arc(q.x,q.y,q.r,0,6.283);x.fill();
+    });
+    requestAnimationFrame(loop);
+  })();
+})();
+</script>
+</body>
+</html>
