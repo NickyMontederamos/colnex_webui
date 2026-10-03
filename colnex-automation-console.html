@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style id="skin-css"></style>
 <style>
 /* =========================================================
    SKINS — every colour in the page comes from these tokens
@@ -16,36 +17,7 @@
   --f-body:'Montserrat',system-ui,sans-serif; --f-mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
   --moon:0; --crack:0;
 }
-[data-skin="dark-strings"]{
-  --bg:#0B0B0E; --bg2:#16151A; --card:#1C1A22; --line:rgba(194,166,98,.28); --line-s:rgba(194,166,98,.75);
-  --accent:#C2A662; --accent2:#E5C158; --on-accent:#0B0B0E; --text:#D9CBB0; --muted:#8E9AAF; --dim:#4A5868;
-  --warm:#332822; --ok:#9DB89A; --bad:#C77B6B; --ember:194,166,98;
-  --halo:radial-gradient(ellipse at 50% -10%,#1C1A22 0,#0B0B0E 68%);
-}
-[data-skin="eclipse"]{
-  --bg:#060507; --bg2:#0F0B09; --card:#17110D; --line:rgba(232,163,61,.28); --line-s:rgba(232,163,61,.8);
-  --accent:#E8A33D; --accent2:#FFC766; --on-accent:#120A04; --text:#EBD3B0; --muted:#B08D63; --dim:#6B4A2A;
-  --warm:#3A1F10; --ok:#B7C48A; --bad:#D9694A; --ember:232,140,40; --moon:1;
-  --halo:radial-gradient(ellipse at 50% 120%,#1b0e06 0,#060507 65%);
-}
-[data-skin="cracked-marble"]{
-  --bg:#0E0D0C; --bg2:#1A1816; --card:#221F1C; --line:rgba(178,150,104,.3); --line-s:rgba(214,184,128,.8);
-  --accent:#B89A62; --accent2:#E0C48A; --on-accent:#14110C; --text:#D8D0C2; --muted:#9A9184; --dim:#5C554B;
-  --warm:#2C241B; --ok:#A8B890; --bad:#C4745E; --ember:184,154,98; --crack:.5;
-  --halo:radial-gradient(ellipse at 30% -10%,#2a2622 0,#0E0D0C 65%);
-}
-[data-skin="moonlit-slate"]{
-  --bg:#070A10; --bg2:#0E141F; --card:#131B2A; --line:rgba(143,179,217,.26); --line-s:rgba(167,199,232,.8);
-  --accent:#8FB3D9; --accent2:#C5DDF5; --on-accent:#07101C; --text:#D3DEEC; --muted:#8196B0; --dim:#46566E;
-  --warm:#1B2740; --ok:#8FC7B0; --bad:#D98C8C; --ember:143,179,217;
-  --halo:radial-gradient(ellipse at 70% -10%,#16223a 0,#070A10 65%);
-}
-[data-skin="parchment"]{
-  --bg:#EBE2CE; --bg2:#E0D5BB; --card:#F5EEDD; --line:rgba(94,64,24,.28); --line-s:rgba(94,64,24,.7);
-  --accent:#8A5A1F; --accent2:#B07A2E; --on-accent:#FBF5E6; --text:#2D2013; --muted:#6D5A41; --dim:#9C8A6C;
-  --warm:#E6D8B8; --ok:#4F7A4A; --bad:#A8412E; --ember:138,90,31;
-  --halo:radial-gradient(ellipse at 50% -10%,#F6EFDE 0,#EBE2CE 70%);
-}
+/* skin tokens are generated from SKIN_DEFS in the script and injected into #skin-css */
 
 /* =========================================================
    BASE
@@ -174,6 +146,7 @@ textarea.in{font-family:var(--f-mono);font-size:12px;min-height:120px;resize:ver
 .log div{white-space:pre-wrap;word-break:break-word}
 .log .ts{color:var(--dim)}.log .ok{color:var(--ok)}.log .bad{color:var(--bad)}.log .hi{color:var(--accent2)}
 
+.cssbox{max-height:300px;overflow:auto;padding:12px;background:var(--bg);border:1px solid var(--line);border-radius:8px;font-family:var(--f-mono);font-size:11.5px;line-height:1.6;color:var(--accent2);white-space:pre;tab-size:2}
 /* ---------- toast ---------- */
 #toast{position:fixed;right:18px;bottom:18px;z-index:50;max-width:320px;padding:12px 16px;background:var(--card);border:1px solid var(--accent2);border-radius:8px;box-shadow:0 0 22px rgba(var(--ember),.35);transform:translateY(120px);opacity:0;transition:.4s cubic-bezier(.68,-.5,.27,1.5);font-size:13px}
 #toast.show{transform:none;opacity:1}
@@ -195,7 +168,7 @@ textarea.in{font-family:var(--f-mono);font-size:12px;min-height:120px;resize:ver
     </div>
     <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-end">
       <div class="skins" id="skins" role="group" aria-label="Choose skin"></div>
-      <label class="toggle"><input type="checkbox" id="emberToggle" checked> Ambient embers <span class="mono muted">· keys 1–5 switch skin</span></label>
+      <label class="toggle"><input type="checkbox" id="emberToggle" checked> Ambient embers <span class="mono muted">· keys 1–9, 0 switch skin</span></label>
     </div>
   </header>
 
@@ -268,6 +241,22 @@ textarea.in{font-family:var(--f-mono);font-size:12px;min-height:120px;resize:ver
         <p class="mono muted" style="margin-top:10px">Demo only: connectors are stored in this browser and "tests" are simulated. No real credentials are sent anywhere.</p>
       </section>
 
+      <section class="panel" aria-labelledby="skinH">
+        <div class="panel-h">
+          <div><p class="eyebrow">Take it with you</p><h2 class="head" id="skinH">Skin CSS</h2></div>
+          <div class="row">
+            <button class="btn sm primary" id="cssCopy" type="button">Copy this skin</button>
+            <button class="btn sm" id="cssCopyAll" type="button">Copy all skins</button>
+          </div>
+        </div>
+        <div class="chips" role="group" aria-label="CSS format">
+          <button class="chip" id="fmtScoped" type="button" aria-pressed="true">Scoped · data-skin</button>
+          <button class="chip" id="fmtRoot" type="button" aria-pressed="false">Standalone · :root</button>
+        </div>
+        <pre class="cssbox" id="cssBox" tabindex="0" aria-label="CSS for the current skin"></pre>
+        <p class="mono muted" id="cssHow" style="margin-top:10px"></p>
+      </section>
+
       <section class="panel" aria-labelledby="cfgH">
         <div class="panel-h"><div><p class="eyebrow">Backup</p><h2 class="head" id="cfgH">Export / import</h2></div></div>
         <textarea class="in" id="cfg" spellcheck="false" aria-label="Configuration JSON"></textarea>
@@ -290,13 +279,33 @@ textarea.in{font-family:var(--f-mono);font-size:12px;min-height:120px;resize:ver
 'use strict';
 
 /* ================= DATA ================= */
-var SKINS=[
-  {id:'dark-strings',  name:'Dark Strings',  sw:'#C2A662'},
-  {id:'eclipse',       name:'Eclipse',       sw:'#E8A33D'},
-  {id:'cracked-marble',name:'Cracked Marble',sw:'#B89A62'},
-  {id:'moonlit-slate', name:'Moonlit Slate', sw:'#8FB3D9'},
-  {id:'parchment',     name:'Parchment',     sw:'#8A5A1F'}
+/* Every skin = a name, a swatch colour and a set of CSS custom properties.
+   The generator below turns these into real CSS you can copy from the "Skin CSS" panel. */
+var VAR_ORDER=['--bg','--bg2','--card','--line','--line-s','--accent','--accent2','--on-accent','--text','--muted','--dim','--warm','--ok','--bad','--ember','--halo','--moon','--crack'];
+var SKIN_DEFS=[
+ {id:'dark-strings',name:'Dark Strings',sw:'#C2A662',v:{'--bg':'#0B0B0E','--bg2':'#16151A','--card':'#1C1A22','--line':'rgba(194,166,98,.28)','--line-s':'rgba(194,166,98,.75)','--accent':'#C2A662','--accent2':'#E5C158','--on-accent':'#0B0B0E','--text':'#D9CBB0','--muted':'#8E9AAF','--dim':'#4A5868','--warm':'#332822','--ok':'#9DB89A','--bad':'#C77B6B','--ember':'194,166,98','--halo':'radial-gradient(ellipse at 50% -10%,#1C1A22 0,#0B0B0E 68%)'}},
+ {id:'eclipse',name:'Eclipse',sw:'#E8A33D',v:{'--bg':'#060507','--bg2':'#0F0B09','--card':'#17110D','--line':'rgba(232,163,61,.28)','--line-s':'rgba(232,163,61,.8)','--accent':'#E8A33D','--accent2':'#FFC766','--on-accent':'#120A04','--text':'#EBD3B0','--muted':'#B08D63','--dim':'#6B4A2A','--warm':'#3A1F10','--ok':'#B7C48A','--bad':'#D9694A','--ember':'232,140,40','--halo':'radial-gradient(ellipse at 50% 120%,#1b0e06 0,#060507 65%)','--moon':'1'}},
+ {id:'cracked-marble',name:'Cracked Marble',sw:'#B89A62',v:{'--bg':'#0E0D0C','--bg2':'#1A1816','--card':'#221F1C','--line':'rgba(178,150,104,.3)','--line-s':'rgba(214,184,128,.8)','--accent':'#B89A62','--accent2':'#E0C48A','--on-accent':'#14110C','--text':'#D8D0C2','--muted':'#9A9184','--dim':'#5C554B','--warm':'#2C241B','--ok':'#A8B890','--bad':'#C4745E','--ember':'184,154,98','--halo':'radial-gradient(ellipse at 30% -10%,#2a2622 0,#0E0D0C 65%)','--crack':'.5'}},
+ {id:'moonlit-slate',name:'Moonlit Slate',sw:'#8FB3D9',v:{'--bg':'#070A10','--bg2':'#0E141F','--card':'#131B2A','--line':'rgba(143,179,217,.26)','--line-s':'rgba(167,199,232,.8)','--accent':'#8FB3D9','--accent2':'#C5DDF5','--on-accent':'#07101C','--text':'#D3DEEC','--muted':'#8196B0','--dim':'#46566E','--warm':'#1B2740','--ok':'#8FC7B0','--bad':'#D98C8C','--ember':'143,179,217','--halo':'radial-gradient(ellipse at 70% -10%,#16223a 0,#070A10 65%)'}},
+ {id:'parchment',name:'Parchment',sw:'#8A5A1F',v:{'--bg':'#EBE2CE','--bg2':'#E0D5BB','--card':'#F5EEDD','--line':'rgba(94,64,24,.28)','--line-s':'rgba(94,64,24,.7)','--accent':'#8A5A1F','--accent2':'#B07A2E','--on-accent':'#FBF5E6','--text':'#2D2013','--muted':'#6D5A41','--dim':'#9C8A6C','--warm':'#E6D8B8','--ok':'#4F7A4A','--bad':'#A8412E','--ember':'138,90,31','--halo':'radial-gradient(ellipse at 50% -10%,#F6EFDE 0,#EBE2CE 70%)'}},
+ {id:'crimson-requiem',name:'Crimson Requiem',sw:'#B3263A',v:{'--bg':'#0A0507','--bg2':'#150A0D','--card':'#1E0E13','--line':'rgba(179,38,58,.35)','--line-s':'rgba(214,74,96,.8)','--accent':'#C23049','--accent2':'#E8647C','--on-accent':'#fff4f5','--text':'#EAD3D6','--muted':'#A98088','--dim':'#5E3A42','--warm':'#3A1018','--ok':'#9DB89A','--bad':'#F08A7A','--ember':'210,50,75','--halo':'radial-gradient(ellipse at 50% -10%,#2a0d14 0,#0A0507 68%)'}},
+ {id:'cathedral-violet',name:'Cathedral Violet',sw:'#9B7BD4',v:{'--bg':'#08060E','--bg2':'#110C1B','--card':'#181024','--line':'rgba(155,123,212,.3)','--line-s':'rgba(190,160,240,.8)','--accent':'#9B7BD4','--accent2':'#C9B0F5','--on-accent':'#0C0716','--text':'#E0D6F0','--muted':'#9387B0','--dim':'#54486E','--warm':'#2A1B45','--ok':'#9ACDB5','--bad':'#E08A9A','--ember':'160,125,225','--halo':'radial-gradient(ellipse at 50% -10%,#1f1238 0,#08060E 68%)'}},
+ {id:'verdigris-crypt',name:'Verdigris Crypt',sw:'#4FB3A0',v:{'--bg':'#050B0B','--bg2':'#0B1615','--card':'#101F1D','--line':'rgba(79,179,160,.28)','--line-s':'rgba(110,210,190,.78)','--accent':'#4FB3A0','--accent2':'#8FE0CC','--on-accent':'#04100E','--text':'#CFE3DC','--muted':'#80A59B','--dim':'#3E5E57','--warm':'#10302B','--ok':'#A8D88F','--bad':'#D98C7A','--ember':'90,200,175','--halo':'radial-gradient(ellipse at 50% -10%,#0f2a26 0,#050B0B 68%)'}},
+ {id:'ashen-monochrome',name:'Ashen Monochrome',sw:'#B9B9B9',v:{'--bg':'#0A0A0A','--bg2':'#141414','--card':'#1B1B1B','--line':'rgba(200,200,200,.22)','--line-s':'rgba(230,230,230,.7)','--accent':'#BDBDBD','--accent2':'#F0F0F0','--on-accent':'#0A0A0A','--text':'#DADADA','--muted':'#8C8C8C','--dim':'#505050','--warm':'#262626','--ok':'#B5C9B0','--bad':'#C98A8A','--ember':'210,210,210','--halo':'radial-gradient(ellipse at 50% -10%,#222 0,#0A0A0A 68%)','--crack':'.25'}},
+ {id:'rosewood-cello',name:'Rosewood Cello',sw:'#C0703A',v:{'--bg':'#0D0806','--bg2':'#1A100B','--card':'#24160F','--line':'rgba(192,112,58,.3)','--line-s':'rgba(222,140,80,.78)','--accent':'#C0703A','--accent2':'#E9A06A','--on-accent':'#150A04','--text':'#E8D2BC','--muted':'#AA8566','--dim':'#6A4630','--warm':'#40200F','--ok':'#B2BF8A','--bad':'#D96F55','--ember':'205,125,65','--halo':'radial-gradient(ellipse at 50% -10%,#2c170c 0,#0D0806 68%)'}}
 ];
+var SKINS=SKIN_DEFS;
+var $=function(id){return document.getElementById(id)};
+function skinCSS(d,standalone){
+  var sel=standalone?':root':'[data-skin="'+d.id+'"]';
+  var base={'--moon':'0','--crack':'0'},lines=[];
+  VAR_ORDER.forEach(function(k){var val=d.v[k]!=null?d.v[k]:(base[k]!=null?base[k]:null);if(val!=null)lines.push('  '+k+': '+val+';')});
+  return '/* '+d.name+' */\n'+sel+' {\n'+lines.join('\n')+'\n}';
+}
+function injectSkins(){
+  var css=SKIN_DEFS.map(function(d){return skinCSS(d,false)}).join('\n');
+  $('skin-css').textContent=css;
+}
 var ACTIONS={
   Email:['read inbox','classify email','send reply'],
   Chat:['post message','read thread','notify channel'],
@@ -370,7 +379,7 @@ function renderSkins(){
   var box=$('skins');box.textContent='';
   SKINS.forEach(function(s,i){
     var b=el('button','skin-chip');b.type='button';b.setAttribute('aria-pressed',String(state.skin===s.id));
-    b.title='Press '+(i+1);
+    b.title='Press '+((i+1)%10);
     var sw=el('span','sw');sw.style.background=s.sw;b.appendChild(sw);b.appendChild(document.createTextNode(s.name));
     b.addEventListener('click',function(){setSkin(s.id)});
     box.appendChild(b);
@@ -379,12 +388,12 @@ function renderSkins(){
 function setSkin(id){
   state.skin=id;document.documentElement.setAttribute('data-skin',id);
   var s=SKINS.filter(function(x){return x.id===id})[0];$('skinName').textContent=s.name.toUpperCase();
-  renderSkins();save();readEmberColor();
+  renderSkins();save();readEmberColor();renderSkinCSS();
 }
 document.addEventListener('keydown',function(e){
   var tag=(e.target.tagName||'').toLowerCase();
   if(tag==='input'||tag==='textarea'||tag==='select'||e.ctrlKey||e.metaKey||e.altKey)return;
-  var i=parseInt(e.key,10);if(i>=1&&i<=SKINS.length){setSkin(SKINS[i-1].id);toast('Skin: '+SKINS[i-1].name)}
+  var i=e.key==='0'?10:parseInt(e.key,10);if(i>=1&&i<=SKINS.length){setSkin(SKINS[i-1].id);toast('Skin: '+SKINS[i-1].name)}
 });
 
 /* ================= MAP ================= */
@@ -621,9 +630,41 @@ function loop(){
 }
 $('emberToggle').addEventListener('change',function(){state.embers=this.checked;save()});
 
+/* ================= SKIN CSS PANEL ================= */
+var cssStandalone=false;
+function curDef(){return SKIN_DEFS.filter(function(d){return d.id===state.skin})[0]||SKIN_DEFS[0]}
+function extrasCSS(d){
+  var out='';
+  if(d.v['--moon']==='1')out+='\n\n/* Eclipse moon (optional) */\nbody::before{content:"";position:fixed;right:-8vmax;top:-10vmax;width:46vmax;height:46vmax;border-radius:50%;pointer-events:none;z-index:0;\n  background:radial-gradient(circle at 38% 38%,#FFD27A 0,#E8A33D 38%,#B8651B 70%,rgba(184,101,27,0) 71%);\n  box-shadow:0 0 120px 40px rgba(232,140,40,.35);opacity:calc(var(--moon)*.5)}';
+  if(d.v['--crack'])out+='\n\n/* Cracked overlay (optional): add class "cracked" to any panel.\n   Needs --crack set (see above). SVG lives in the console file under .panel::after. */';
+  return out;
+}
+function renderSkinCSS(){
+  var d=curDef(),base=skinCSS(d,cssStandalone)+extrasCSS(d);
+  $('cssBox').textContent=base;
+  $('cssHow').textContent=cssStandalone
+    ?'Paste into any stylesheet. Every colour in your page should read from var(--bg), var(--text), var(--accent)…'
+    :'Paste next to the other skins, then set <html data-skin="'+d.id+'"> to switch to it.';
+  $('fmtScoped').setAttribute('aria-pressed',String(!cssStandalone));
+  $('fmtRoot').setAttribute('aria-pressed',String(cssStandalone));
+}
+function copyText(t,msg){
+  function done(){toast(msg)}
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(done,fallback)}else fallback();
+  function fallback(){var ta=document.createElement('textarea');ta.value=t;ta.style.cssText='position:fixed;opacity:0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done()}catch(e){toast('Copy failed — select the text manually')}ta.remove()}
+}
+$('fmtScoped').onclick=function(){cssStandalone=false;renderSkinCSS()};
+$('fmtRoot').onclick=function(){cssStandalone=true;renderSkinCSS()};
+$('cssCopy').onclick=function(){copyText($('cssBox').textContent,curDef().name+' CSS copied')};
+$('cssCopyAll').onclick=function(){
+  var t='/* Colnex skins — set <html data-skin="id"> */\n'+SKIN_DEFS.map(function(d){return skinCSS(d,false)}).join('\n\n');
+  copyText(t,'All '+SKIN_DEFS.length+' skins copied');
+};
+
 /* ================= BOOT ================= */
 $('emberToggle').checked=state.embers!==false;
 if(!SKINS.some(function(s){return s.id===state.skin}))state.skin='dark-strings';
+injectSkins();
 setSkin(state.skin);
 refresh();
 logLine('console ready — '+state.connectors.length+' connectors loaded','hi');
